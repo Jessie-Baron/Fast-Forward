@@ -1,7 +1,6 @@
 from flask_sqlalchemy import SQLAlchemy
 from .db import db, add_prefix_for_prod, environment, SCHEMA
 
-
 class Comment(db.Model):
     __tablename__ = 'comments'
     if environment == "production":
@@ -9,9 +8,15 @@ class Comment(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     body = db.Column(db.String)
     user_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod("users.id")))
-    story_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod("stories.id")))
+    fast_forward_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod("fastForwards.id")))
     user = db.relationship("User", back_populates="comments")
     fast_forwards = db.relationship("FastForwards", back_populates="comments")
+
+    # liked_comment_user = db.relationship(
+    #     "User",
+    #     secondary=like_comment,
+    #     lazy='dynamic',
+    #     back_populates = 'liked_comment')
 
     def to_dict(self):
         return {
