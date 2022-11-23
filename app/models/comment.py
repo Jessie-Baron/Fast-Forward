@@ -9,8 +9,8 @@ class Comment(db.Model):
     body = db.Column(db.String)
     user_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod("users.id")))
     fast_forward_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod("fastForwards.id")))
-    user = db.relationship("User", back_populates="comments")
-    fast_forwards = db.relationship("FastForward", back_populates="comments")
+    user = db.relationship("User", backref="comments")
+    fast_forwards = db.relationship("FastForward", backref="comments")
 
     # liked_comment_user = db.relationship(
     #     "User",

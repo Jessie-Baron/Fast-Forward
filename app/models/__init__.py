@@ -1,5 +1,5 @@
 from .db import db
 from .user import User
-from .comments import Comment
-from .fast_forwards import FastForward
+from .comment import Comment
+from .fast_forward import FastForward
 from .db import environment, SCHEMA

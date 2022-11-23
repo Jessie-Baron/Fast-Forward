@@ -29,7 +29,7 @@ class User(db.Model, UserMixin):
     id = db.Column(db.Integer, primary_key=True)
     first_name = db.Column(db.String(40), nullable=False, unique=True)
     last_name = db.Column(db.String(40), nullable=False, unique=True)
-    bio = db.Column(db.String(255), nullable=False, unique=True)
+    bio = db.Column(db.String(255), nullable=True, unique=True)
     image_url = db.Column(db.String(255), nullable=False, unique=True)
     username = db.Column(db.String(40), nullable=False, unique=True)
     email = db.Column(db.String(255), nullable=False, unique=True)
