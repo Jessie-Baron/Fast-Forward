@@ -67,6 +67,7 @@ def sign_up():
             last_name=form.data['username'],
             bio=form.data['username'],
             image_url=form.data['username'],
+            username=form.data['email'],
             email=form.data['email'],
             password=form.data['password']
         )
