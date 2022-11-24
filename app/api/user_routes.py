@@ -23,3 +23,28 @@ def user(id):
     """
     user = User.query.get(id)
     return user.to_dict()
+
+
+# ================================users followers and following routes ==================================
+
+# get all users I am following
+@user_routes.route("/<int:id>/following")
+@login_required
+def following(id):
+    user = User.query.get(id)
+    following = user.following.all()
+    users = {}
+    for i in range(len(following)):
+        users[user.following[i].id]=user.following[i].to_dict()
+    return users
+
+# get all users who follow me
+@user_routes.route("/<int:id>/followers")
+@login_required
+def followers(id):
+    user = User.query.get(id)
+    followers = user.followers.all()
+    users = {}
+    for i in range(len(followers)):
+        users[users.following[i].id] = user.followers[i].to_dict()
+    return users

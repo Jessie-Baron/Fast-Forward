@@ -1,11 +1,18 @@
 import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
 import session from './session'
+import fastForward from './fastForward'
+import fastForwardDetails from './fastForwardDetails'
+import commentReducer from './comment'
+import follower from './follower'
 
 const rootReducer = combineReducers({
   session,
+  fastForward,
+  fastForwardDetails,
+  comment: commentReducer,
+  follower,
 });
-
 
 let enhancer;
 
