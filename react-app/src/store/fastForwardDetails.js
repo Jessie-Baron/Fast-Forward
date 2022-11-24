@@ -4,26 +4,26 @@ const EDIT_DETAILS = "fastForwardDetails/EDIT_DETAILS";
 
 
 
-const getfastForwardDetails = (fastForward) => ({
+const getFastForwardDetails = (fastForward) => ({
   type: GET_DETAILS,
   payload: fastForward,
 });
 
-export const deletefastForwardDetails = () => ({
+export const deleteFastForwardDetails = () => ({
   type: DELETE_DETAILS
 });
 
-export const editfastForwardDetails = (fastForward) => ({
+export const editFastForwardDetails = (fastForward) => ({
   type: EDIT_DETAILS,
   payload: fastForward
 });
 
 
-export const fetchfastForwardDetails = (id) => async (dispatch) => {
+export const fetchFastForwardDetails = (id) => async (dispatch) => {
   const response = await fetch(`/api/stories/${id}`);
   if (response.ok) {
     const fastForward = await response.json();
-    dispatch(getfastForwardDetails(fastForward));
+    dispatch(getFastForwardDetails(fastForward));
     return response;
   }
 };

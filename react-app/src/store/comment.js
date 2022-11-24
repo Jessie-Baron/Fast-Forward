@@ -1,4 +1,4 @@
-import { fetchFastForwardDetails } from './fastForward';
+import { fetchFastForwardDetails } from './fastForwardDetails';
 
 export const LOAD_COMMENT = "comments/LOAD_COMMENTS";
 export const UPDATE_COMMENT = "comments/UPDATE_COMMENTS";
