@@ -1,0 +1,128 @@
+#home-logo {
+    margin: 0;
+    margin-left: 10%;
+    padding: 10px 0;
+    font-size: 24px;
+    color: white;
+    letter-spacing: 2px;
+}
+
+.logo-text {
+    font-size: 24px;
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+}
+
+#search-icon {
+    color: rgb(118, 117, 117);
+    font-size: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-right: 20px;
+}
+
+#search-icon:hover {
+    cursor: pointer;
+    color: rgb(156, 155, 155);
+}
+
+.search-divider {
+    width: 20px;
+    rotate: 90deg;
+    padding: 0;
+    border-color: rgb(118, 117, 117);
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    margin-left: 60%;
+    gap: 5px;
+}
+
+.fast-forward-logo {
+    display: block;
+}
+
+.navigation-items {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding-bottom: 5px;
+    box-shadow: rgb(255 255 255 / 12%) 0px 1px 1px;
+}
+
+.search-items {
+    display: flex;
+    align-items: center;
+    margin-left: 23%;
+    width: 340px;
+    height: 45px;
+    border: none;
+    background: transparent;
+    background-color: rgb(49, 49, 49);
+    outline: none;
+    padding: 0px;
+    border-radius: 33px;
+}
+
+.search-bar {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 22px;
+    border: none;
+    background: transparent;
+    outline: none;
+    padding: 0px;
+    width: 252px;
+    margin-left: 5%;
+    height: 40px;
+    color: rgba(255, 255, 255, 0.9);
+    caret-color: rgb(255, 59, 92);
+}
+
+.nav-buttons {
+    display: flex;
+    gap: 15px;
+    margin-left: 13%
+}
+
+.upload-button {
+    width: 110px;
+    height: 36px;
+    border: 1px solid rgba(22, 24, 35, 0.12);
+    background-color: rgb(35, 35, 35);
+    color: white;
+    border-radius: 2px;
+    font-size: 16px;
+    line-height: 24px;
+}
+
+.login-button {
+    width: 110px;
+    height: 36px;
+    border: none;
+    background-color: rgb(255, 59, 92);
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.login-button:hover {
+    cursor: pointer;
+    background-color: rgb(250, 41, 76);
+}
+
+.upload-button:hover {
+    cursor: pointer;
+    background-color: #141414;
+}
+
+.login {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 24px;
+}
