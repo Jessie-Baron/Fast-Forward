@@ -23,7 +23,7 @@ def get_fast_forward():
     return {fast_forward.to_dict()['id']: fast_forward.to_dict() for fast_forward in data}
 
 @fast_forward_routes.route('/<int:id>')
-def get_fast_forward(id):
+def get_fast_forward_details(id):
     data = fast_forward.query.get(id)
     return data.to_dict()
 
