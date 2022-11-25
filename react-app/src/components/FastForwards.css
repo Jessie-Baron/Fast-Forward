@@ -1,0 +1,5 @@
+#root > form > input[type=file] {
+    margin-top: 25%;
+    margin-left: 25%;
+    color: white;
+}

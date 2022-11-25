@@ -21,7 +21,7 @@ const NavBar = () => {
           <i id="search-icon" class="fa-solid fa-magnifying-glass"></i>
         </div>
         <div className='nav-buttons'>
-          <button className='upload-button'>+ Upload</button>
+          <button className='upload-button'><NavLink className='upload' to='/upload' exact={true} activeClassName='active'>+ Upload</NavLink></button>
           <button className='login-button'><NavLink className='login' to='/login' exact={true} activeClassName='active'>Login</NavLink></button>
         </div>
         {/* <ul>

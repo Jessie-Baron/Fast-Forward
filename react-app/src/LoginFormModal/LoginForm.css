@@ -1,0 +1,75 @@
+.loginForm {
+    width: 300px;
+    height: 300px;
+    padding: 30px;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    border: 1px solid rgba(0, 0, 0, 0.04);
+    border-radius: 7px;
+    box-shadow: 0 16px 24px 2px rgba(0, 0, 0, 0.14);
+}
+
+.loginEmail, .loginPassword, .loginBt {
+    font-size:20px;
+}
+#modal-content > form > div:nth-child(2) > input {
+    width: 200px;
+}
+
+.loginPasswordInput {
+    width: 200px;
+    margin-bottom: 10px;
+}
+
+#modal-content > form > div:nth-child(4) {
+    display: flex;
+    gap: 10px;
+    margin-top: 40px;
+}
+
+#modal-content > form > div:nth-child(2) {
+    margin-bottom: 15px;
+}
+​
+.loginBt{
+    /* background-color: rgb(223, 171, 68); */
+    background-color: white;
+    border-style: none;
+    border-radius: 25px;
+    border: 0px solid;
+    height: 38px;
+    width: 120px;
+    color:white;
+    font-size:13px
+}
+
+#modal-content > form > div:nth-child(4) > button.loginBt {
+    background-color: white;
+    border: 1px solid grey;
+    border-radius: 33px;
+    width: 55px;
+    height: 30px;
+    font-size: 14px;
+}
+
+#modal-content > form > div:nth-child(4) > button.loginBt:hover {
+    cursor: pointer;
+    border: 1.2px solid black;
+}
+
+#modal-content > form > div:nth-child(4) > button:nth-child(2) {
+    background-color: white;
+    border: 1px solid grey;
+    border-radius: 33px;
+    width: 55px;
+    height: 30px;
+    font-size: 14px;
+}
+
+#modal-content > form > div:nth-child(4) > button:nth-child(2):hover {
+    cursor: pointer;
+    border: 1.2px solid black;
+}

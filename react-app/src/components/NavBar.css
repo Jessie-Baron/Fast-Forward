@@ -96,10 +96,14 @@
     height: 36px;
     border: 1px solid rgba(22, 24, 35, 0.12);
     background-color: rgb(35, 35, 35);
-    color: white;
     border-radius: 2px;
+}
+
+.upload {
     font-size: 16px;
     line-height: 24px;
+    color: white;
+    text-decoration: none;
 }
 
 .login-button {
@@ -136,6 +140,27 @@
     margin-left: 8%;
     margin-top: 5%;
     position: fixed;
+}
+
+.sideBar-container-clicked {
+    display: flex;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 8px;
+    gap: 5px;
+    font-size: 18px;
+    line-height: 25px;
+    text-decoration: none;
+    color: rgb(255, 59, 92);;
+    font-weight: 400;
+    display: flex;
+    gap: 10px;
+    border-radius: 4px;
+}
+
+.sideBar-container-clicked:hover {
+    cursor: pointer;
+    background-color: #2a2a2a;
 }
 
 .sideBar-container {

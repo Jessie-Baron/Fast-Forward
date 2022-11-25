@@ -9,13 +9,15 @@ import UsersList from './components/UsersList';
 import User from './components/User';
 import { authenticate } from './store/session';
 import SideBar from './components/SideBar';
+import FastUpload from './components/FastUpload';
+import { ModalProvider } from "./context/Modal";
 
 function App() {
   const [loaded, setLoaded] = useState(false);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    (async() => {
+    (async () => {
       await dispatch(authenticate());
       setLoaded(true);
     })();
@@ -26,26 +28,36 @@ function App() {
   }
 
   return (
-    <BrowserRouter>
-      <NavBar />
-      <SideBar />
-      <Switch>
-        <Route path='/login' exact={true}>
-          <LoginForm />
-        </Route>
-        <Route path='/sign-up' exact={true}>
-          <SignUpForm />
-        </Route>
-        <ProtectedRoute path='/users' exact={true} >
-          <UsersList/>
-        </ProtectedRoute>
-        <ProtectedRoute path='/users/:userId' exact={true} >
-          <User />
-        </ProtectedRoute>
-        <Route path='/' exact={true} >
-        </Route>
-      </Switch>
-    </BrowserRouter>
+    <div className="fast-forward-body">
+      <ModalProvider />
+      <BrowserRouter>
+        <NavBar />
+        <Switch>
+          <Route path='/login' exact={true}>
+            <SideBar />
+            <LoginForm />
+          </Route>
+          <Route path='/upload' exact={true}>
+            <FastUpload />
+          </Route>
+          <Route path='/sign-up' exact={true}>
+            <SideBar />
+            <SignUpForm />
+          </Route>
+          <ProtectedRoute path='/users' exact={true} >
+            <SideBar />
+            <UsersList />
+          </ProtectedRoute>
+          <ProtectedRoute path='/users/:userId' exact={true} >
+            <SideBar />
+            <User />
+          </ProtectedRoute>
+          <Route path='/' exact={true} >
+            <SideBar />
+          </Route>
+        </Switch>
+      </BrowserRouter>
+    </div>
   );
 }
 
