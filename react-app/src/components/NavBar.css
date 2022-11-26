@@ -106,16 +106,21 @@
     text-decoration: none;
 }
 
-.login-button {
+#root > div > nav > div > div.nav-buttons > button.signIn {
     width: 110px;
     height: 36px;
     border: none;
     background-color: rgb(255, 59, 92);
     border-radius: 5px;
     font-weight: bold;
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 24px;
 }
 
-.login-button:hover {
+#root > div > nav > div > div.nav-buttons > button.signIn:hover {
     cursor: pointer;
     background-color: rgb(250, 41, 76);
 }
@@ -126,11 +131,7 @@
 }
 
 .login {
-    text-decoration: none;
-    color: white;
-    font-weight: bold;
-    font-size: 16px;
-    line-height: 24px;
+
 }
 
 .sideBar-items {
@@ -204,29 +205,6 @@
     line-height: 22px;
 }
 
-.login-button-sidebar {
-    width: 100%;
-    height: 48px;
-    border-color: rgba(255, 59, 92, 1);
-    background-color: rgba(255, 255, 255, .08);
-    border-width: 1px;
-    border-style: solid;
-    border-radius: 4px;
-}
-
-.login-button-sidebar:hover {
-    cursor: pointer;
-    background-color: rgb(36, 16, 16);;
-}
-
-.login-sideBar {
-    font-size: 18px;
-    line-height: 25px;
-    color: rgba(255, 59, 92, 1);
-    text-decoration: none;
-    font-weight: 400;
-}
-
 .login-container-sidebar {
     padding-bottom: 25px;
     border-bottom: .8px solid rgba(66, 66, 66, .5);
@@ -248,4 +226,24 @@
 
 .suggested-feed {
     border-bottom: .8px solid rgba(66, 66, 66, .5);
+}
+
+#root > div > div.sideBar-items > div.login-container-sidebar > button.signIn {
+    font-size: 18px;
+    line-height: 25px;
+    color: rgba(255, 59, 92, 1);
+    text-decoration: none;
+    font-weight: 400;
+    width: 100%;
+    height: 48px;
+    border-color: rgba(255, 59, 92, 1);
+    background-color: rgba(255, 255, 255, .08);
+    border-width: 1px;
+    border-style: solid;
+    border-radius: 4px;
+}
+
+#root > div > div.sideBar-items > div.login-container-sidebar > button.signIn:hover {
+    cursor: pointer;
+    background-color: rgb(36, 16, 16);;
 }

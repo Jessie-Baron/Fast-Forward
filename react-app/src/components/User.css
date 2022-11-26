@@ -1,0 +1,33 @@
+#root > div > div.sideBar-items > div.suggested-feed > ul > div > img {
+    width: 30px;
+    border-radius: 33px;
+    height: 30px;
+}
+
+#root > div > div.sideBar-items > div.suggested-feed > ul {
+    padding-left: 0;
+    margin-left: 0;
+    left: 0;
+}
+
+.user-suggested {
+    display: flex;
+    gap: 10px;
+    color: rgb(156, 155, 155);
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+#root > div > div.sideBar-items > div.suggested-feed > ul > div > div > a {
+    display: flex;
+    gap: 10px;
+    color: rgba(255, 255, 255, .75);
+    font-weight: 600;
+    font-size: 18px;
+    text-decoration: none;
+}
+
+.suggested-text {
+    display: flex;
+    flex-direction: column;
+}

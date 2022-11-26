@@ -1,6 +1,7 @@
 
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import LoginFormModal from './LoginFormModal';
 import LogoutButton from './auth/LogoutButton';
 import './NavBar.css'
 
@@ -22,7 +23,7 @@ const NavBar = () => {
         </div>
         <div className='nav-buttons'>
           <button className='upload-button'><NavLink className='upload' to='/upload' exact={true} activeClassName='active'>+ Upload</NavLink></button>
-          <button className='login-button'><NavLink className='login' to='/login' exact={true} activeClassName='active'>Login</NavLink></button>
+          <LoginFormModal className='login-button' nav={false}/>
         </div>
         {/* <ul>
         <li>

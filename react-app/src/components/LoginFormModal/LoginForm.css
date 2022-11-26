@@ -1,0 +1,218 @@
+.loginForm {
+    width: 483px;
+    height: 550px;
+    display:flex;
+    padding: 48px 0px 0px;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgb(37, 37, 37);
+    border: 1px solid rgba(0, 0, 0, 0.04);
+    border-radius: 7px;
+    box-shadow: 0 16px 24px 2px rgba(0, 0, 0, 0.14);
+}
+
+#modal-content > form > div > center > h2 {
+    color: white;
+    top: 0;
+    font-size: 32px;
+}
+
+.outer-login {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.inner-login {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+    width: 80%;
+}
+
+.loginPassword {
+    font-size:14px;
+    color: white;
+}
+
+.loginEmail {
+    font-size:14px;
+    color: white;
+    padding-right: 170px;
+}
+#modal-content > form > div:nth-child(2) > input {
+    width: 200px;
+}
+
+.loginEmailInput {
+    border: none;
+    background-color: rgb(46, 46, 46);
+    caret-color: rgb(255, 59, 92);
+    width: 95%;
+    color: rgba(255, 255, 255, 0.9);
+}
+.login-input {
+    width: 74%;
+    color: rgba(255, 255, 255, 0.9);
+    font-weight: 600;
+    border: 1px solid rgba(255, 255, 255, 0);
+    font-size: 15px;
+    padding: 0px 12px;
+    height: 44px;
+    background: rgb(46, 46, 46);
+    margin-bottom: 15px;
+    display: flex;
+}
+
+.login-input2 {
+    width: 285px;
+    color: rgba(255, 255, 255, 0.9);
+    font-weight: 600;
+    border: 1px solid rgba(255, 255, 255, 0);
+    font-size: 15px;
+    padding: 0px 12px;
+    height: 44px;
+    background: rgb(46, 46, 46);
+    margin-bottom: 15px;
+    display: flex;
+}
+
+.loginPasswordInput {
+    border: none;
+    width: 95%;
+    caret-color: rgb(255, 59, 92);
+    background-color: rgb(46, 46, 46);
+    color: rgba(255, 255, 255, 0.9);
+}
+
+#modal-content > form > div:nth-child(4) {
+    display: flex;
+    gap: 10px;
+    margin-top: 40px;
+}
+
+#modal-content > form > div:nth-child(2) {
+    margin-bottom: 15px;
+}
+
+#login {
+    border-radius: 4px;
+    border: none;
+    color: rgb(255, 255, 255);
+    background-color: rgb(255, 59, 92);
+    min-width: 120px;
+    min-height: 46px;
+    font-size: 16px;
+    line-height: 22px;
+}
+
+#login:hover {
+    background-color: rgb(250, 41, 76);
+    cursor: pointer;
+}
+
+
+#modal-content > form > div > div.inner-login > div.signin-buttons > button.demo-btn {
+    border-radius: 4px;
+    border: none;
+    color: rgb(255, 255, 255);
+    background-color: rgb(255, 59, 92);
+    min-width: 120px;
+    min-height: 46px;
+    font-size: 16px;
+    line-height: 22px;
+}
+
+#modal-content > form > div > div.inner-login > div.signin-buttons > button.demo-btn:hover {
+    background-color: rgb(250, 41, 76);
+    cursor: pointer;
+}
+
+#modal-content > form > div:nth-child(4) > button.loginBt {
+    background-color: white;
+    border: 1px solid grey;
+    border-radius: 33px;
+    width: 55px;
+    height: 30px;
+    font-size: 14px;
+}
+
+#modal-content > form > div:nth-child(4) > button.loginBt:hover {
+    cursor: pointer;
+    border: 1.2px solid black;
+}
+
+#modal-content > form > div:nth-child(4) > button:nth-child(2) {
+    background-color: #696868;
+    border: 1px solid grey;
+    border-radius: 33px;
+    width: 55px;
+    height: 30px;
+    font-size: 14px;
+    color: white;
+}
+
+#modal-content > form > div:nth-child(4) > button:nth-child(2):hover {
+    cursor: pointer;
+    border: 1.2px solid black;
+}
+
+.demos {
+    width: 80%;
+    color: rgba(255, 255, 255, 0.9);
+    font-weight: 600;
+    border: 1px solid rgba(255, 255, 255, 0);
+    font-size: 15px;
+    padding: 0px 12px;
+    height: 44px;
+    background: rgb(46, 46, 46);
+    margin-bottom: 15px;
+    display: flex;
+    gap: 10px;
+}
+
+.demo-text {
+    padding-top: 10px;
+}
+
+.google {
+    width: 25px;
+    padding-top: 6px;
+    padding-left: 35px;
+}
+
+.facebook {
+    width: 20px;
+    padding-top: 7px;
+    padding-left: 35px;
+}
+
+.insta {
+    width: 20px;
+    padding-top: 7px;
+    padding-left: 35px;
+}
+
+.signup-text {
+    color: white;
+    font-size: 12px;
+}
+
+.signup-text-navi {
+    font-size: 12px;
+    text-decoration: none;
+    color: rgb(255, 59, 92);
+}
+
+.signin-buttons {
+    padding-bottom: 25px;
+    display: flex;
+    gap: 25px;
+}
+
+.login-divider {
+    width: 100%;
+    border-color: rgba(255, 255, 255, 0.12);;
+}

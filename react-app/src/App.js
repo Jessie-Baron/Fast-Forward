@@ -29,34 +29,34 @@ function App() {
 
   return (
     <div className="fast-forward-body">
-      <ModalProvider />
-      <BrowserRouter>
-        <NavBar />
-        <Switch>
-          <Route path='/login' exact={true}>
-            <SideBar />
-            <LoginForm />
-          </Route>
-          <Route path='/upload' exact={true}>
-            <FastUpload />
-          </Route>
-          <Route path='/sign-up' exact={true}>
-            <SideBar />
-            <SignUpForm />
-          </Route>
-          <ProtectedRoute path='/users' exact={true} >
-            <SideBar />
-            <UsersList />
-          </ProtectedRoute>
-          <ProtectedRoute path='/users/:userId' exact={true} >
-            <SideBar />
-            <User />
-          </ProtectedRoute>
-          <Route path='/' exact={true} >
-            <SideBar />
-          </Route>
-        </Switch>
-      </BrowserRouter>
+      <ModalProvider>
+        <BrowserRouter>
+          <NavBar />
+          <Switch>
+            <Route path='/login' exact={true}>
+              <LoginForm />
+            </Route>
+            <Route path='/upload' exact={true}>
+              <FastUpload />
+            </Route>
+            <Route path='/sign-up' exact={true}>
+              <SideBar />
+              <SignUpForm />
+            </Route>
+            <ProtectedRoute path='/users' exact={true} >
+              <SideBar />
+              <UsersList />
+            </ProtectedRoute>
+            <ProtectedRoute path='/users/:userId' exact={true} >
+              <SideBar />
+              <User />
+            </ProtectedRoute>
+            <Route path='/' exact={true} >
+              <SideBar />
+            </Route>
+          </Switch>
+        </BrowserRouter>
+      </ModalProvider>
     </div>
   );
 }

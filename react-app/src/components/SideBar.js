@@ -2,7 +2,9 @@ import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useHistory, NavLink } from 'react-router-dom';
 import LogoutButton from './auth/LogoutButton';
+import LoginFormModal from './LoginFormModal';
 import "./NavBar.css"
+import UsersList from './UsersList';
 
 const SideBar = () => {
     const [showMenu, setShowMenu] = useState(false)
@@ -64,10 +66,11 @@ const SideBar = () => {
             <br />
             <h4 className='login-header'>Log in to follow creators, like videos, and view comments.</h4>
             <div className='login-container-sidebar'>
-                <button className='login-button-sidebar'><NavLink className='login-sideBar' to='/login' exact={true} activeClassName='active'>Log In</NavLink></button>
+                <LoginFormModal className='login-sideBar'nav={false}/>
             </div>
             <div className='suggested-feed'>
                 <h4 className='suggested-headline'>Suggested accounts</h4>
+                <UsersList />
                 <h4 className='suggested-see-all'>See all</h4>
             </div>
         </div>
