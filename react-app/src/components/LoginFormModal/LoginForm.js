@@ -36,7 +36,7 @@ const LoginForm = () => {
     // setErrors([]);
     e.preventDefault();
     const data = await dispatch(login("demo@aa.io", "password")).then(
-      history.push("/home")
+      history.push("/")
     );
     if (data) {
       setErrors(data);

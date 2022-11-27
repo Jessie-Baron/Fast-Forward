@@ -14,14 +14,14 @@ function UsersList() {
     fetchData();
   }, []);
 
-  const userComponents = users.map((user) => {
+  const userComponents = users?.map((user) => {
     return (
       <div className='user-suggested' key={user.id}>
-        <img classname='profile' src={user.image_url} alt="user logo" />
+        <img className='profile' src={user?.image_url} alt="user logo" />
         <div className='suggested-text'>
-        <NavLink className='user-header' to={`/users/${user.id}`}>{user.username}</NavLink>
-        {user.first_name}
-        &nbsp;{user.last_name}
+        <NavLink className='user-header' to={`/users/${user?.id}`}>{user.username}</NavLink>
+        {user?.first_name}
+        &nbsp;{user?.last_name}
         </div>
       </div>
     );

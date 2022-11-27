@@ -9,8 +9,10 @@ import UsersList from './components/UsersList';
 import User from './components/User';
 import { authenticate } from './store/session';
 import SideBar from './components/SideBar';
+import SideBar2 from './components/sideBar2';
 import FastUpload from './components/FastUpload';
 import { ModalProvider } from "./context/Modal";
+import FastForwards from './components/FastForward';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -31,7 +33,6 @@ function App() {
     <div className="fast-forward-body">
       <ModalProvider>
         <BrowserRouter>
-          <NavBar />
           <Switch>
             <Route path='/login' exact={true}>
               <LoginForm />
@@ -44,14 +45,19 @@ function App() {
               <SignUpForm />
             </Route>
             <ProtectedRoute path='/users' exact={true} >
-              <SideBar />
+              <SideBar2 />
               <UsersList />
             </ProtectedRoute>
             <ProtectedRoute path='/users/:userId' exact={true} >
-              <SideBar />
+              <SideBar2 />
               <User />
             </ProtectedRoute>
             <Route path='/' exact={true} >
+              <NavBar />
+              <SideBar />
+              <FastForwards />
+            </Route>
+            <Route path='/following' exact={true} >
               <SideBar />
             </Route>
           </Switch>

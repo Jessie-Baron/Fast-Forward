@@ -50,11 +50,12 @@
     border: none;
     background-color: rgb(46, 46, 46);
     caret-color: rgb(255, 59, 92);
-    width: 95%;
     color: rgba(255, 255, 255, 0.9);
+    outline: none;
+    width: 100%;
+    padding-left: 15px;
 }
 .login-input {
-    width: 74%;
     color: rgba(255, 255, 255, 0.9);
     font-weight: 600;
     border: 1px solid rgba(255, 255, 255, 0);
@@ -64,6 +65,9 @@
     background: rgb(46, 46, 46);
     margin-bottom: 15px;
     display: flex;
+    background: transparent;
+    outline: none;
+    width: 310px;
 }
 
 .login-input2 {
@@ -77,6 +81,7 @@
     background: rgb(46, 46, 46);
     margin-bottom: 15px;
     display: flex;
+    outline: none;
 }
 
 .loginPasswordInput {
@@ -85,6 +90,7 @@
     caret-color: rgb(255, 59, 92);
     background-color: rgb(46, 46, 46);
     color: rgba(255, 255, 255, 0.9);
+    outline: none;
 }
 
 #modal-content > form > div:nth-child(4) {

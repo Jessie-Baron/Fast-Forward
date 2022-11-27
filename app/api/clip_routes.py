@@ -7,7 +7,7 @@ from app.aws import (
 clip_routes = Blueprint("clips", __name__)
 
 
-@clip_routes.route("", methods=["POST"])
+@clip_routes.route('', methods=["POST"])
 @login_required
 def upload_clip():
     if "clip" not in request.files:

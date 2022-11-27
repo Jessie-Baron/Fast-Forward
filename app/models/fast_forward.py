@@ -23,8 +23,8 @@ class FastForward(db.Model):
     def to_dict(self):
         return {
             'id': self.id,
-            'url': self.title,
-            'caption': self.body,
+            'url': self.url,
+            'caption': self.caption,
             'user_id': self.user_id,
             'User': self.user.to_dict(),
             'Comments': [comment.to_dict() for comment in self.comments]

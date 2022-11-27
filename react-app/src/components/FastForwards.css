@@ -1,5 +1,44 @@
-#root > form > input[type=file] {
+#root > div > form > input[type=file] {
     margin-top: 25%;
     margin-left: 25%;
     color: white;
+}
+
+#root > div > div:nth-child(3) {
+    padding-top: 5%;
+}
+
+.fast-forward-feed {
+    margin-left: 45%;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.item-header {
+    display: flex;
+    gap: 15px;
+    color: white;
+}
+
+.profileImage {
+    width: 50px;
+    height: 50px;
+    border-radius: 33px;
+}
+
+.caption {
+    margin-left: 70px;
+    padding-bottom: 5px;
+    color: white;
+}
+
+.video {
+    margin-left: 9%;
+    padding-top: 0;
+    top: 0;
+    background-color: black;
+    background-size: cover;
+    border-radius: 8px;
+    cursor: pointer;
 }

@@ -87,8 +87,9 @@
 
 .nav-buttons {
     display: flex;
-    gap: 15px;
-    margin-left: 13%
+    gap: 25px;
+    margin-left: 12%;
+    width: 100%;
 }
 
 .upload-button {
@@ -130,8 +131,11 @@
     background-color: #141414;
 }
 
-.login {
-
+#messages {
+    color: white;
+    font-size: 20px;
+    padding-top: 5px;
+    cursor: pointer;
 }
 
 .sideBar-items {
@@ -245,5 +249,36 @@
 
 #root > div > div.sideBar-items > div.login-container-sidebar > button.signIn:hover {
     cursor: pointer;
-    background-color: rgb(36, 16, 16);;
+    background-color: rgb(36, 16, 16);
+}
+
+.navbar-profile {
+    width: 30px;
+    height: 30px;
+    border-radius: 33px;
+    cursor: pointer;
+}
+
+.dropdown {
+    background-clip: padding-box;
+    left: 0;
+    list-style: none;
+    margin-top: 2px;
+    position: absolute;
+    top: 100%;
+    width: 220px;
+    z-index: 100;
+    margin-left: 68%;
+}
+
+.main-menu-inner {
+    border-radius: 3px;
+    background: rgb(49, 49, 49);
+    color: white;
+}
+
+.main-menu-wrapper {
+    min-width: 280px;
+    padding: 24px 0;
+    display: block;
 }

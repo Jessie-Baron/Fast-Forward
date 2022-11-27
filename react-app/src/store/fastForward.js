@@ -27,6 +27,7 @@ export const fetchAllFastForwards = () => async (dispatch) => {
   const response = await fetch("/api/fastForwards");
   if (response.ok) {
     const fastForwards = await response.json();
+    console.log(fastForwards, "this is the fastForwards list")
     dispatch(getFastForwards(fastForwards));
     return fastForwards;
   }
@@ -51,7 +52,7 @@ export const fetchPostFastForward = (fastForward) => async (dispatch) => {
   }
 };
 
-export const fetchEditfastForward = (id, fastForward) => async (dispatch) => {
+export const fetchEditFastForward = (id, fastForward) => async (dispatch) => {
   console.log(fastForward)
   const { newTitle, newBody } = fastForward;
   // const formData = new FormData();
@@ -71,7 +72,7 @@ export const fetchEditfastForward = (id, fastForward) => async (dispatch) => {
   }
 }
 
-export const fetchDeletefastForward = (id) => async (dispatch) => {
+export const fetchDeleteFastForward = (id) => async (dispatch) => {
   const response = await fetch(`/api/fastForwards/${id}`, {
     method: "DELETE",
   });

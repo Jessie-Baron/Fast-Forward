@@ -1,11 +1,11 @@
 from flask import Blueprint, request, jsonify
 from sqlalchemy.orm import relationship, sessionmaker, joinedload
-from app.models import fast_forward, db, Comment, User
+from app.models import FastForward, db, Comment, User
 from flask_login import login_required, current_user
 from app.forms import FastForwardForm
 from app.forms import CommentForm
 
-fast_forward_routes = Blueprint('fast_forward', __name__)
+fast_forward_routes = Blueprint('fastForwards', __name__)
 
 def validation_errors_to_error_messages(validation_errors):
     """
@@ -19,12 +19,13 @@ def validation_errors_to_error_messages(validation_errors):
 
 @fast_forward_routes.route('')
 def get_fast_forward():
-    data = fast_forward.query.all()
+    data = FastForward.query.all()
+    print("this is the data", data)
     return {fast_forward.to_dict()['id']: fast_forward.to_dict() for fast_forward in data}
 
 @fast_forward_routes.route('/<int:id>')
 def get_fast_forward_details(id):
-    data = fast_forward.query.get(id)
+    data = FastForward.query.get(id)
     return data.to_dict()
 
 

@@ -6,7 +6,7 @@ import LoginFormModal from './LoginFormModal';
 import "./NavBar.css"
 import UsersList from './UsersList';
 
-const SideBar = () => {
+const SideBar2 = () => {
     const [showMenu, setShowMenu] = useState(false)
     const dispatch = useDispatch()
     const history = useHistory()
@@ -32,42 +32,31 @@ const SideBar = () => {
         return () => document.removeEventListener("click", closeMenu)
     }, [showMenu])
 
-    const forYou = () => {
-        if (forButton) return
-        setForButton(true)
-        setFollowingButton(false)
-    }
-
-    const following = () => {
-        if (followingButton) return
-        setFollowingButton(true)
-        setForButton(false)
-    }
-
 
     const user = useSelector((state) => state.session.user);
 
     return (
         <div className='sideBar-items'>
             <div className='sideBar-buttons'>
-                <div>
-                    <NavLink className={forButton ? "sideBar-container-clicked" : "sideBar-container"} to="/" exact={true}>
-                        <i id='for-you-logo' class="fa-solid fa-house"></i>
-                        <div className="for-you-text" onClick={forYou}>For You</div>
-                    </NavLink>
-                </div>
-                <div>
-                    <NavLink className={followingButton ? "sideBar-container-clicked" : "sideBar-container"} to="/following" exact={true}>
-                        <i id='following-logo' class="fa-solid fa-people-group"></i>
-                        <div onClick={following} className="following-text">Following</div>
-                    </NavLink>
-                </div>
+            <div>
+                <NavLink className="sideBar-container" to="/" exact={true}>
+                    <i id='for-you-logo' class="fa-solid fa-house"></i>
+                    <div className="for-you-text">For You</div>
+                </NavLink>
+            </div>
+            <div>
+                <NavLink className="sideBar-container" to="/following" exact={true}>
+                    <i id='following-logo' class="fa-solid fa-people-group"></i>
+                    <div className="following-text">Following</div>
+                </NavLink>
+            </div>
             </div>
             <br />
-            {!user && <h4 className='login-header'>Log in to follow creators, like videos, and view comments.</h4>}
+            <h4 className='login-header'>Log in to follow creators, like videos, and view comments.</h4>
             {!user && <div className='login-container-sidebar'>
                 <LoginFormModal className='login-sideBar'nav={false}/>
-            </div>}
+            </div>
+            }
             <div className='suggested-feed'>
                 <h4 className='suggested-headline'>Suggested accounts</h4>
                 <UsersList />
@@ -77,4 +66,4 @@ const SideBar = () => {
     )
 }
 
-export default SideBar;
+export default SideBar2;
