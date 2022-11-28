@@ -38,10 +38,10 @@ function App() {
               <LoginForm />
             </Route>
             <Route path='/upload' exact={true}>
+              <NavBar />
               <FastUpload />
             </Route>
             <Route path='/sign-up' exact={true}>
-              <SideBar />
               <SignUpForm />
             </Route>
             <ProtectedRoute path='/users' exact={true} >
@@ -49,6 +49,7 @@ function App() {
               <UsersList />
             </ProtectedRoute>
             <ProtectedRoute path='/users/:userId' exact={true} >
+              <NavBar />
               <SideBar2 />
               <User />
             </ProtectedRoute>
@@ -58,7 +59,8 @@ function App() {
               <FastForwards />
             </Route>
             <Route path='/following' exact={true} >
-              <SideBar />
+              <NavBar />
+              <SideBar2 />
             </Route>
           </Switch>
         </BrowserRouter>

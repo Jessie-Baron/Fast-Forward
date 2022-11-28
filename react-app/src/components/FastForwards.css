@@ -17,8 +17,15 @@
 
 .item-header {
     display: flex;
-    gap: 15px;
+    gap: 20px;
+    align-items: center;
+}
+
+.item-header2 {
+    display: flex;
+    gap: 10px;
     color: white;
+    padding-bottom: 5px;
 }
 
 .profileImage {
@@ -28,7 +35,6 @@
 }
 
 .caption {
-    margin-left: 70px;
     padding-bottom: 5px;
     color: white;
 }
@@ -41,4 +47,19 @@
     background-size: cover;
     border-radius: 8px;
     cursor: pointer;
+}
+
+.video-username {
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.video-username:hover {
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.video-name {
+    font-size: 14px;
+    margin-top: 4px;
 }

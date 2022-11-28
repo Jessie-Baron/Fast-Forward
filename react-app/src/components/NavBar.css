@@ -54,6 +54,9 @@
     box-shadow: rgb(255 255 255 / 12%) 0px 1px 1px;
     position: fixed;
     width: 100%;
+    z-index: 500;
+    background-color: rgb(18, 18, 18);
+    top: 0;
 }
 
 .search-items {
@@ -67,6 +70,7 @@
     background-color: rgb(49, 49, 49);
     outline: none;
     padding: 0px;
+    margin-top: 10px;
     border-radius: 33px;
 }
 
@@ -89,6 +93,7 @@
     display: flex;
     gap: 25px;
     margin-left: 12%;
+    margin-top: 5px;
     width: 100%;
 }
 

@@ -4,6 +4,9 @@ import { login } from "../../store/session";
 import { useHistory } from "react-router-dom";
 import { NavLink, Redirect } from "react-router-dom";
 import './LoginForm.css'
+import SignupFormModal from "../SingUpFormModal";
+import LoginFormModal from ".";
+import setShowModal from "./index"
 
 const LoginForm = () => {
   const [errors, setErrors] = useState([]);
@@ -16,7 +19,7 @@ const LoginForm = () => {
   const onLogin = async (e) => {
     e.preventDefault();
     const data = await dispatch(login(email, password)).then(
-      history.push("/home")
+      history.push("/")
     );
     if (data) {
       setErrors(data);
@@ -104,7 +107,7 @@ const LoginForm = () => {
         </div>
         <hr className="login-divider"/>
         <center>
-        <h4 className="signup-text">Don’t have an account? <NavLink className='signup-text-navi' to='/sign-up' exact={true} activeClassName='active'>Sign up</NavLink></h4>
+        <h4 className="signup-text">Don’t have an account? <SignupFormModal onClick={setShowModal(false)} className='signup-text-navi'>Sign Up</SignupFormModal></h4>
         </center>
       </div>
     </form>
