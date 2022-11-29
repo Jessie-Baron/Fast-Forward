@@ -21,7 +21,7 @@ def seed_fast_forwards():
         user_id=3, url='https://static.videezy.com/system/resources/previews/000/044/249/original/01__2822_29.mp4', caption='test8')
     ff9 = FastForward(
         user_id=3, url='https://static.videezy.com/system/resources/previews/000/044/903/original/telepoorte_fnl.mp4', caption='test9')
-
+        
     db.session.add(ff1)
     db.session.add(ff2)
     db.session.add(ff3)

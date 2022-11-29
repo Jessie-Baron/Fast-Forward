@@ -5,7 +5,7 @@ import * as fastForwardActions from "../store/fastForward";
 import { getComments, deleteComment } from "../store/comment";
 import CommentForm from "./CommentForm";
 import CommentEditForm from "./CommentEditForm";
-
+import './FastForwards.css'
 
 const FastForwards = () => {
     // const user = useSelector((state) => state.session.user);
@@ -60,26 +60,36 @@ const FastForwards = () => {
                             <source src={fastForward.url} type="video/mp4" />
                         </video>
                         {user &&
-                        <div className="video-sidebar">
-                            <div onClick={openMenu} className="comment-wrapper">
-                                <i id='comment-icon' class="fa-regular fa-comment"></i>
-                            </div>
-                            <div className="comment-counter">{fastForward?.Comments?.length}</div>
-                        </div>}
+                            <div className="video-sidebar">
+                                <div onClick={openMenu} className="comment-wrapper">
+                                    <i id='comment-icon' class="fa-regular fa-comment"></i>
+                                </div>
+                                <div className="comment-counter">{fastForward?.Comments?.length}</div>
+                            </div>}
                         <div className="comments">
                             {showMenu && (
                                 <div className="comments-sidebar">
-                                    <div className="comments-headline">
-                                        <img
-                                            src={fastForward.User.image_url}
-                                            alt="Profile"
-                                            className="profileImage">
-                                        </img>
-                                        <h2>{user?.username}</h2>
+                                    <div className="item-header">
+                                        <div className="left">
+                                            <img
+                                                src={fastForward.User.image_url}
+                                                alt="Profile"
+                                                className="profileImage"
+                                            />
+                                        </div>
+                                        <div className="right">
+                                            <div className="item-header2">
+                                                <div className="video-username">{fastForward.User.username}</div>
+                                                <div className="video-name">{fastForward.User.first_name} {fastForward.User.last_name}</div>
+                                            </div>
+                                            <div className="caption-wrapper">
+                                                <NavLink className="caption" to={`/fastForwards/${fastForward.id}`} exact={true}>{fastForward.caption}</NavLink>
+                                            </div>
+                                        </div>
                                     </div>
                                     <div className="textarea-comments">
                                         <CommentForm
-                                        fastForwardId={fastForward.id}/>
+                                            fastForwardId={fastForward.id} />
                                     </div>
                                     {fastForward.Comments?.map((comment) => (
                                         <div>

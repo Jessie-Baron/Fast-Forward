@@ -4,6 +4,8 @@ from app.models import FastForward, db, Comment, User
 from flask_login import login_required, current_user
 from app.forms import FastForwardForm
 from app.forms import CommentForm
+from app.aws import (
+    upload_file_to_s3, allowed_file, get_unique_filename)
 
 fast_forward_routes = Blueprint('fastForwards', __name__)
 
@@ -35,13 +37,14 @@ def post_fast_forward():
     form = FastForwardForm()
     form['csrf_token'].data = request.cookies['csrf_token']
     if form.validate_on_submit():
-        fast_forward = fast_forward(title=form.data['title'],
-                    body=form.data['body'],
+        fast_forward_upload = FastForward(
+                    caption=form.data['caption'],
+                    url=form.data['url'],
                     user_id=current_user.id
                     )
-        db.session.add(fast_forward)
+        db.session.add(fast_forward_upload)
         db.session.commit()
-        return fast_forward.to_dict()
+        return fast_forward_upload.to_dict()
     return {'errors': validation_errors_to_error_messages(form.errors)}, 401
 
 @fast_forward_routes.route('/<int:id>',  methods=['PUT'])
@@ -60,7 +63,6 @@ def edit_fast_forward(id):
             return fast_forward.to_dict()
         return {'errors': validation_errors_to_error_messages(form.errors)}, 401
     return {'errors': ['Unauthorized']}
-
 
 @fast_forward_routes.route('/<int:id>', methods=['DELETE'])
 @login_required

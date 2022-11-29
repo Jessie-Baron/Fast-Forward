@@ -27,7 +27,6 @@ export const fetchAllFastForwards = () => async (dispatch) => {
   const response = await fetch("/api/fastForwards");
   if (response.ok) {
     const fastForwards = await response.json();
-    console.log(fastForwards, "this is the fastForwards list")
     dispatch(getFastForwards(fastForwards));
     return fastForwards;
   }

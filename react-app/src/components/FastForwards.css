@@ -104,6 +104,10 @@
     gap: 5px;
 }
 
+.comments {
+    border: 1px solid white
+}
+
 .comment-counter {
     color: white;
     font-size: 12px;

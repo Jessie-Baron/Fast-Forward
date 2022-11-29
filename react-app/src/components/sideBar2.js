@@ -52,7 +52,7 @@ const SideBar2 = () => {
             </div>
             </div>
             <br />
-            <h4 className='login-header'>Log in to follow creators, like videos, and view comments.</h4>
+            {!user && <h4 className='login-header'>Log in to follow creators, like videos, and view comments.</h4>}
             {!user && <div className='login-container-sidebar'>
                 <LoginFormModal className='login-sideBar'nav={false}/>
             </div>
