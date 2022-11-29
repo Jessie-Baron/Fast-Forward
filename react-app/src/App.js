@@ -58,6 +58,9 @@ function App() {
               <SideBar />
               <FastForwards />
             </Route>
+            <Route path='/fastForward/:fastForwardId' exact={true} >
+              
+            </Route>
             <Route path='/following' exact={true} >
               <NavBar />
               <SideBar2 />

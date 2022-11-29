@@ -37,6 +37,11 @@
 .caption {
     padding-bottom: 5px;
     color: white;
+    text-decoration: none;
+}
+
+.caption:hover {
+    text-decoration: underline;
 }
 
 .video {
