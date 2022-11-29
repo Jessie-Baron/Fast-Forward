@@ -3,7 +3,7 @@ import { Dispatch } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory, useLocation, useParams } from "react-router-dom";
 import { editComment } from "../store/comment";
-import * as fastForwardDetailsActions from "../store/fastForwardDetails"
+import * as fastForwardActions from "../store/fastForward";
 
 function CommentEditForm({comment, setCommentBody, commentBody, setEditId, fastForwardId}) {
 
@@ -36,6 +36,7 @@ function CommentEditForm({comment, setCommentBody, commentBody, setEditId, fastF
 
 
     await dispatch(editComment(comment.id, commentForm, fastForwardId))
+    await dispatch(fastForwardActions.fetchAllFastForwards())
     setEditId(-1)
 
 

@@ -30,6 +30,7 @@ const FastForwards = () => {
 
     const handleDelete = async (commentId, fastForwardId) => {
         await dispatch(deleteComment(commentId, fastForwardId))
+        await dispatch(fastForwardActions.fetchAllFastForwards())
     };
 
     return (

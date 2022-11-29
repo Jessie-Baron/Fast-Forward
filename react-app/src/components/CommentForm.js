@@ -3,7 +3,7 @@ import { Dispatch } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory, useLocation } from "react-router-dom";
 import { createComment } from "../store/comment";
-import * as fastForwardDetailsActions from "../store/fastForwardDetails"
+import * as fastForwardActions from "../store/fastForward";
 
 function CommentForm(fastForwardId) {
   const fastId = (Object.values(fastForwardId)[0])
@@ -36,7 +36,7 @@ function CommentForm(fastForwardId) {
 
 
     await dispatch(createComment(fastId, commentForm))
-    await dispatch(fastForwardDetailsActions.fetchFastForwardDetails(fastId))
+    await dispatch(fastForwardActions.fetchAllFastForwards())
 
     // Reset the form state.
     setBody("");
