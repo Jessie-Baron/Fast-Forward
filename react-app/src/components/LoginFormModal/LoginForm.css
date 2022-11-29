@@ -1,6 +1,6 @@
 .loginForm {
     width: 483px;
-    height: 550px;
+    height: 600px;
     display:flex;
     padding: 48px 0px 0px;
     flex-direction: column;
@@ -221,4 +221,9 @@
 .login-divider {
     width: 100%;
     border-color: rgba(255, 255, 255, 0.12);;
+}
+
+#modal-content > form > div > div:nth-child(1) > div {
+    color: rgb(127, 2, 2);
+    font-size: 14px;
 }

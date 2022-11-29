@@ -68,3 +68,43 @@
     font-size: 14px;
     margin-top: 4px;
 }
+
+.flasForward-wrapper {
+    display: flex;
+    align-items: center;
+}
+
+.video-details {
+    top: 0;
+}
+
+.video-comment {
+    display: flex;
+    gap: 10px;
+}
+
+#comment-icon {
+    font-size: 30px;
+    color: rgba(255, 255, 255, 0.9);;
+    margin-top: 510px;
+    border: 1px solid black;
+    padding: 10px 10px;
+    border-radius: 33px;
+    background-color: grey;
+}
+
+#comment-icon:hover {
+    cursor: pointer;
+}
+
+.video-sidebar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+}
+
+.comment-counter {
+    color: white;
+    font-size: 12px;
+}

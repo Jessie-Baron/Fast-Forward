@@ -23,6 +23,6 @@ class Comment(db.Model):
             'id': self.id,
             'body': self.body,
             'user_id': self.user_id,
-            'story_id': self.story_id,
+            'fast_forward_id': self.fast_forward_id,
             'User': self.user.to_dict()
         }

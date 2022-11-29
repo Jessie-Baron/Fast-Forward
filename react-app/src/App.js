@@ -13,6 +13,7 @@ import SideBar2 from './components/sideBar2';
 import FastUpload from './components/FastUpload';
 import { ModalProvider } from "./context/Modal";
 import FastForwards from './components/FastForward';
+import FastForwardIndexItem from './components/FastForwardIndexItem'
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -58,8 +59,8 @@ function App() {
               <SideBar />
               <FastForwards />
             </Route>
-            <Route path='/fastForward/:fastForwardId' exact={true} >
-              
+            <Route path='/fastForwards/:fastForwardId' exact={true} >
+              <FastForwardIndexItem />
             </Route>
             <Route path='/following' exact={true} >
               <NavBar />

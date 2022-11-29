@@ -74,16 +74,15 @@ def delete_fast_forward(id):
         return {"data": "Deleted"}
     return {'errors': ['Unauthorized']}
 
-# @fast_forward_routes.route('/<int:id>/comments')
-# @login_required
-# def get_comments(id):
-#     """
-#     Query for all comments for a fast_forward and returns them in a list of dictionaries
-#     """
-#     fast_forward = fast_forward.query.get(id)
-#     comments = Comment.query.get(fast_forward.id)
-#     print(comments)
-#     return comments.to_dict()
+@fast_forward_routes.route('/comments')
+@login_required
+def get_comments():
+    """
+    Query for all comments for a fast_forward and returns them in a list of dictionaries
+    """
+    comments = Comment.query.all()
+    print(comments)
+    return comments.to_dict()
 
 
 @fast_forward_routes.route('/<int:id>/comments', methods=['POST'])

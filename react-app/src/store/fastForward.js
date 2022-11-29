@@ -34,10 +34,7 @@ export const fetchAllFastForwards = () => async (dispatch) => {
 };
 
 export const fetchPostFastForward = (fastForward) => async (dispatch) => {
-  const { title, body } = fastForward;
-  // const formData = new FormData();
-  // formData.append("title", title);
-  // formData.append("body", body);
+  const { caption, url } = fastForward;
   const response = await fetch("/api/fastForwards", {
     method: "POST",
     headers: {

@@ -28,9 +28,9 @@ export const remove = (commentId) => ({
 
 
 
-export const getComments = (storyId) => async dispatch => {
+export const getComments = (fastForwardId) => async dispatch => {
 
-  const response = await fetch(`/api/stories/${storyId}/comments`);
+  const response = await fetch(`/api/fastForwards/${fastForwardId}/comments`);
 
   if (response.ok) {
     const list = await response.json();
@@ -57,16 +57,16 @@ export const getCommentsByUser = (userId) => async dispatch => {
   }
 };
 
-export const createComment = (storyId, payload) => async dispatch => {
+export const createComment = (fastForwardId, payload) => async dispatch => {
   console.log(payload)
-  const response = await fetch(`/api/stories/${storyId}/comments`, {
+  const response = await fetch(`/api/fastForwards/${fastForwardId}/comments`, {
     method: 'POST',
     headers: {
       "Content-Type": "application/json"
     },
     body: JSON.stringify(payload)
   })
-  // const response = await fetch(`/api/stories/${storyId}/comments`, {
+  // const response = await fetch(`/api/fastForwards/${fastForwardId}/comments`, {
   //   method: "POST",
   //   headers: {
 
@@ -80,7 +80,7 @@ export const createComment = (storyId, payload) => async dispatch => {
 };
 
 
-export const editComment = (commentId, payload, storyId) => async dispatch => {
+export const editComment = (commentId, payload, fastForwardId) => async dispatch => {
   console.log(payload)
   const response = await fetch(`/api/comments/${commentId}`, {
     method: 'PUT',
@@ -94,12 +94,12 @@ export const editComment = (commentId, payload, storyId) => async dispatch => {
     const comment = await response.json();
     console.log("this is the payload", payload)
     dispatch(add(comment));
-    dispatch(fetchFastForwardDetails(storyId));
+    dispatch(fetchFastForwardDetails(fastForwardId));
   }
 };
 
 
-export const deleteComment = (id, storyId) => async dispatch => {
+export const deleteComment = (id, fastForwardId) => async dispatch => {
   const response = await fetch(`/api/comments/${id}`, {
     method: 'DELETE'
   });
@@ -107,7 +107,7 @@ export const deleteComment = (id, storyId) => async dispatch => {
   if (response.ok) {
     const list = await response.json();
     dispatch(remove(id));
-    dispatch(fetchFastForwardDetails(storyId))
+    dispatch(fetchFastForwardDetails(fastForwardId))
   }
 }
 const initialState = { allComments: {}, singleComment: {} };

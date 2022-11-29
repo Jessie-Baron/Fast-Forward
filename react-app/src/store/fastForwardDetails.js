@@ -20,7 +20,7 @@ export const editFastForwardDetails = (fastForward) => ({
 
 
 export const fetchFastForwardDetails = (id) => async (dispatch) => {
-  const response = await fetch(`/api/stories/${id}`);
+  const response = await fetch(`/api/fastForwards/${id}`);
   if (response.ok) {
     const fastForward = await response.json();
     dispatch(getFastForwardDetails(fastForward));
