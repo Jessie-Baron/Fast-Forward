@@ -66,7 +66,7 @@ def edit_fast_forward(id):
 @fast_forward_routes.route('/<int:id>', methods=['DELETE'])
 @login_required
 def delete_fast_forward(id):
-    fast_forward = fast_forward.query.get(id)
+    fast_forward = FastForward.query.get(id)
     print(fast_forward)
     print(id)
     if current_user.id == fast_forward.user_id:

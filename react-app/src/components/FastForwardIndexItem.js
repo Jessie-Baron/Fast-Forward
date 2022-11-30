@@ -22,10 +22,15 @@ const FastForwardIndexItem = () => {
     const user = useSelector((state) => state.session.user);
     const fastForwards = Object.values(useSelector((state) => state.fastForward));
     const fastForward = fastForwards.filter(fastForward => fastForwardId === fastForward.id)[0]
-    console.log(fastForward)
+
     useEffect(() => {
         dispatch(fastForwardActions.fetchAllFastForwards());
     }, [dispatch]);
+
+    const deleteFastForward = async () => {
+        await dispatch(fastForwardActions.fetchDeleteFastForward(fastForward.id))
+        .then(history.push('/'))
+    };
 
     const handleDelete = async (commentId, fastForwardId) => {
         await dispatch(deleteComment(commentId, fastForwardId))
@@ -58,6 +63,10 @@ const FastForwardIndexItem = () => {
                                     <div className="caption-wrapper">
                                         <NavLink className="caption" to={`/fastForwards/${fastForward?.id}`} exact={true}>{fastForward?.caption}</NavLink>
                                     </div>
+                                    {fastForward.User?.id === user?.id &&
+                                    <button onClick={deleteFastForward} className="profButtons">
+                                        Delete
+                                    </button>}
                                 </div>
                             </div>
                         </div>
