@@ -4,6 +4,7 @@ from app.models import FastForward, db, Comment, User
 from flask_login import login_required, current_user
 from app.forms import FastForwardForm
 from app.forms import CommentForm
+from app.forms import FastForwardEditForm
 
 
 fast_forward_routes = Blueprint('fastForwards', __name__)
@@ -49,14 +50,13 @@ def post_fast_forward():
 @fast_forward_routes.route('/<int:id>',  methods=['PUT'])
 @login_required
 def edit_fast_forward(id):
-    fast_forward = fast_forward.query.get(id)
+    fast_forward = FastForward.query.get(id)
     if current_user.id == fast_forward.user_id:
-        form = FastForwardForm()
+        form = FastForwardEditForm()
         form['csrf_token'].data = request.cookies['csrf_token']
         print(form.data)
         if form.validate_on_submit():
-            fast_forward.title = form.data['title']
-            fast_forward.body = form.data['body']
+            fast_forward.caption = form.data['caption']
             db.session.add(fast_forward)
             db.session.commit()
             return fast_forward.to_dict()

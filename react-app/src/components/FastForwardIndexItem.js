@@ -8,12 +8,16 @@ import { getComments, deleteComment } from "../store/comment";
 import CommentForm from "./CommentForm";
 import CommentEditForm from "./CommentEditForm";
 import './FastForwards.css'
+import CaptionEditForm from "./CaptionEditForm";
 
 const FastForwardIndexItem = () => {
     const fastForwardId = Number(useLocation().pathname.split("/")[2]);
     const [commentBody, setCommentBody] = useState("");
+    const [captionBody, setCaptionBody] = useState("");
     const [showEdit, setShowEdit] = useState(false);
+    const [showEdit2, setShowEdit2] = useState(false);
     const [editId, setEditId] = useState(-1);
+    const [editId2, setEditId2] = useState(-1);
     const { id } = useParams();
     const history = useHistory();
     const dispatch = useDispatch();
@@ -29,7 +33,7 @@ const FastForwardIndexItem = () => {
 
     const deleteFastForward = async () => {
         await dispatch(fastForwardActions.fetchDeleteFastForward(fastForward.id))
-        .then(history.push('/'))
+            .then(history.push('/'))
     };
 
     const handleDelete = async (commentId, fastForwardId) => {
@@ -57,16 +61,44 @@ const FastForwardIndexItem = () => {
                                 </div>
                                 <div className="right">
                                     <div className="item-header2">
-                                        <div className="video-username">{fastForward?.User.username}</div>
-                                        <div className="video-name">{fastForward?.User.first_name} {fastForward?.User.last_name}</div>
+                                        <div className="video-username">{fastForward?.User?.username}</div>
+                                        <div className="video-name">{fastForward?.User?.first_name} {fastForward?.User.last_name}</div>
                                     </div>
                                     <div className="caption-wrapper">
                                         <NavLink className="caption" to={`/fastForwards/${fastForward?.id}`} exact={true}>{fastForward?.caption}</NavLink>
                                     </div>
-                                    {fastForward.User?.id === user?.id &&
-                                    <button onClick={deleteFastForward} className="profButtons">
-                                        Delete
-                                    </button>}
+                                    {fastForward?.User?.id === user?.id &&
+                                        <div>
+                                            <button onClick={deleteFastForward} className="profButtons">
+                                                Delete
+                                            </button>
+                                            <button className="profButtons"
+                                             id={fastForward.id}
+                                             value={fastForward.id}
+                                             onClick={() => {
+                                                if (editId2 === fastForward.id) {
+                                                    setEditId2(-1);
+                                                    setEditId2("");
+                                                    return;
+                                                }
+                                                setShowEdit(!showEdit)
+                                                setEditId2(fastForward.id);
+                                                setCaptionBody(fastForward.caption);
+                                            }}>
+                                                Edit
+                                            </button>
+                                        </div>}
+                                        <div className="editform">
+                                        {showEdit && (
+                                            <CaptionEditForm
+                                                className="caption-edit-form"
+                                                fastForwardId={fastForward.id}
+                                                setCaptionBody={setCaptionBody}
+                                                captionBody={captionBody}
+                                                setShowEdit={setShowEdit}
+                                            />
+                                        )}
+                                    </div>
                                 </div>
                             </div>
                         </div>

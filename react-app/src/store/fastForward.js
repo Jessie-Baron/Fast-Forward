@@ -48,18 +48,17 @@ export const fetchPostFastForward = (fastForward) => async (dispatch) => {
   }
 };
 
-export const fetchEditFastForward = (id, fastForward) => async (dispatch) => {
-  console.log(fastForward)
-  const { newTitle, newBody } = fastForward;
+export const fetchEditFastForward = (fastForwardId, payload) => async (dispatch) => {
+  console.log(fastForwardId)
   // const formData = new FormData();
   // formData.append("title", newTitle);
   // formData.append("body", newBody);
-  const res = await fetch(`/api/fastForwards/${id}`, {
+  const res = await fetch(`/api/fastForwards/${fastForwardId}`, {
     method: "PUT",
     headers: {
       "Content-Type": "application/json"
     },
-    body: JSON.stringify(fastForward)
+    body: JSON.stringify(payload)
   });
   if (res.ok) {
     const data = await res.json()
