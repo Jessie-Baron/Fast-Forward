@@ -34,6 +34,7 @@ const FastForwardIndexItem = () => {
 
     return (
         <div className="fastForward-wrapper">
+            <NavLink to='/' className='exit-redirect'><i class="fa-regular fa-circle-xmark"></i></NavLink>
             <video className='video-details' controls width='65%' height='100%' border-radius='8'>
                 <source src={fastForward?.url} type="video/mp4" />
             </video>

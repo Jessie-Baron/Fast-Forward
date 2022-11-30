@@ -208,3 +208,18 @@
 .edit-text {
     margin-left: 11.5%;
 }
+
+.exit-redirect {
+    position: absolute;
+    left: 0;
+    right: 0;
+    padding-left: 15px;
+    font-size: 34px;
+    color: grey;
+    margin-bottom: 840px;
+    z-index: 50;
+}
+
+.exit-redirect:hover {
+    opacity: .7;
+}
