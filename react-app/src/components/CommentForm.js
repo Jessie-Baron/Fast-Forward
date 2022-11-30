@@ -52,7 +52,7 @@ function CommentForm(fastForwardId) {
       ))}
     </ul>
     <label>
-      <textarea
+      <input
         type="text"
         value={body}
         onChange={(e) => setBody(e.target.value)}

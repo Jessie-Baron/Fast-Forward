@@ -4,8 +4,7 @@ from app.models import FastForward, db, Comment, User
 from flask_login import login_required, current_user
 from app.forms import FastForwardForm
 from app.forms import CommentForm
-from app.aws import (
-    upload_file_to_s3, allowed_file, get_unique_filename)
+
 
 fast_forward_routes = Blueprint('fastForwards', __name__)
 
