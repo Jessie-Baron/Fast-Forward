@@ -14,7 +14,7 @@ function UsersList2() {
     fetchData();
   }, []);
 
-  const userComponents = users.slice?.map((user) => {
+  const userComponents = users?.map((user) => {
     return (
       <div className='user-suggested' key={user.id}>
         <img className='profile' src={user?.image_url} alt="user logo" />

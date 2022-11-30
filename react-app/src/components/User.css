@@ -16,6 +16,14 @@
     color: rgb(156, 155, 155);
     font-size: 14px;
     margin-bottom: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 5px;
+    border-radius: 7px;
+}
+
+.user-suggested:hover {
+    background-color: #2a2a2a;
 }
 
 #root > div > div.sideBar-items > div.suggested-feed > ul > div > div > a {

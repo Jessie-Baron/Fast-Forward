@@ -8,7 +8,6 @@ import * as fastForwardActions from "../store/fastForward";
 function CommentForm(fastForwardId) {
   const fastId = (Object.values(fastForwardId)[0])
   const [body, setBody] = useState("");
-  const userId = useSelector((state) => state.session.user.id);
   const [validationErrors, setValidationErrors] = useState([]);
   const [hasSubmitted, setHasSubmitted] = useState(false);
   const dispatch = useDispatch()

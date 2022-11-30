@@ -5,19 +5,20 @@ import * as fastForwardActions from "../store/fastForward";
 import { getComments, deleteComment } from "../store/comment";
 import CommentForm from "./CommentForm";
 import CommentEditForm from "./CommentEditForm";
+import * as followActions from '../store/follower'
 import './FastForwards.css'
 
 const FastForwards = () => {
     // const user = useSelector((state) => state.session.user);
     const history = useHistory();
     const fastForwards = Object.values(useSelector((state) => state.fastForward));
+
     const dispatch = useDispatch();
     const user = useSelector((state) => state.session.user);
     const commentsObj = useSelector(state => state.comment.allComments)
     const [showMenu, setShowMenu] = useState(false);
     const [editId, setEditId] = useState(-1);
     const [commentBody, setCommentBody] = useState("");
-
 
     useEffect(() => {
         dispatch(fastForwardActions.fetchAllFastForwards());

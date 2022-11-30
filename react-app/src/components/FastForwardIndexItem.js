@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { useLocation, useParams, NavLink, useHistory } from "react-router-dom";
 import * as fastForwardDetailsActions from "../store/fastForwardDetails";
 import * as fastForwardActions from "../store/fastForward";
+import * as followActions from '../store/follower'
 // import * as followActions from '../../store/follower'
 import { getComments, deleteComment } from "../store/comment";
 import CommentForm from "./CommentForm";
@@ -12,20 +13,25 @@ import CaptionEditForm from "./CaptionEditForm";
 
 const FastForwardIndexItem = () => {
     const fastForwardId = Number(useLocation().pathname.split("/")[2]);
+    const user = useSelector((state) => state.session.user);
+    const fastForwards = Object.values(useSelector((state) => state.fastForward));
+    const fastForward = fastForwards.filter(fastForward => fastForwardId === fastForward.id)[0]
+    let followings = useSelector((state) => Object.values(state.follower.following))
+    followings = followings.map((user) => user.id)
+
     const [commentBody, setCommentBody] = useState("");
     const [captionBody, setCaptionBody] = useState("");
     const [showEdit, setShowEdit] = useState(false);
     const [showEdit2, setShowEdit2] = useState(false);
     const [editId, setEditId] = useState(-1);
     const [editId2, setEditId2] = useState(-1);
+    const [following, setFollowing] = useState(followings.includes(fastForward?.User.id))
     const { id } = useParams();
     const history = useHistory();
     const dispatch = useDispatch();
 
+    console.log(followings.includes(fastForward?.User.id))
 
-    const user = useSelector((state) => state.session.user);
-    const fastForwards = Object.values(useSelector((state) => state.fastForward));
-    const fastForward = fastForwards.filter(fastForward => fastForwardId === fastForward.id)[0]
 
     useEffect(() => {
         dispatch(fastForwardActions.fetchAllFastForwards());
@@ -40,6 +46,18 @@ const FastForwardIndexItem = () => {
         await dispatch(deleteComment(commentId, fastForwardId))
         await dispatch(fastForwardActions.fetchAllFastForwards())
     };
+
+    const handleClick = () => {
+        if (!following) {
+            dispatch(followActions.follow(user.id, fastForward.user_id))
+            // .then(() => followActions.followingList(user.id))
+            setFollowing(true)
+        } else {
+            dispatch(followActions.unfollow(user.id, fastForward.user_id))
+                // .then(() => followActions.followingList(user.id))
+                .then(() => setFollowing(false))
+        }
+    }
 
     return (
         <div className="fastForward-wrapper">
@@ -73,22 +91,22 @@ const FastForwardIndexItem = () => {
                                                 Delete
                                             </div>
                                             <div className="edit-button"
-                                             id={fastForward.id}
-                                             value={fastForward.id}
-                                             onClick={() => {
-                                                if (editId2 === fastForward.id) {
-                                                    setEditId2(-1);
-                                                    setEditId2("");
-                                                    return;
-                                                }
-                                                setShowEdit(!showEdit)
-                                                setEditId2(fastForward.id);
-                                                setCaptionBody(fastForward.caption);
-                                            }}>
+                                                id={fastForward?.id}
+                                                value={fastForward?.id}
+                                                onClick={() => {
+                                                    if (editId2 === fastForward?.id) {
+                                                        setEditId2(-1);
+                                                        setEditId2("");
+                                                        return;
+                                                    }
+                                                    setShowEdit(!showEdit)
+                                                    setEditId2(fastForward.id);
+                                                    setCaptionBody(fastForward.caption);
+                                                }}>
                                                 Edit
                                             </div>
                                         </div>}
-                                        <div className="editform">
+                                    <div className="editform">
                                         {showEdit && (
                                             <CaptionEditForm
                                                 className="caption-edit-form"
@@ -99,6 +117,11 @@ const FastForwardIndexItem = () => {
                                             />
                                         )}
                                     </div>
+                                </div>
+                                <div className="follow-button-holder">
+                                    {user && (user?.id !== fastForward?.user_id) && (
+                                        <button className={following ? "following-user-button" : "follow-user-button"} onClick={handleClick}>{following ? 'Following' : 'Follow'}</button>
+                                    )}
                                 </div>
                             </div>
                         </div>

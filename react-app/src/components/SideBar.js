@@ -5,21 +5,13 @@ import LogoutButton from './auth/LogoutButton';
 import LoginFormModal from './LoginFormModal';
 import "./NavBar.css"
 import UsersList from './UsersList';
+import UsersList2 from './UsersList2';
 
 const SideBar = () => {
     const [showMenu, setShowMenu] = useState(false)
-    const dispatch = useDispatch()
-    const history = useHistory()
     const [forButton, setForButton] = useState(true)
+    const [seeMore, setSeeMore] = useState(false)
     const [followingButton, setFollowingButton] = useState(false)
-
-
-    const openMenu = () => {
-
-        if (showMenu) return
-        setShowMenu(true)
-        console.log("opening")
-    }
 
     useEffect(() => {
         const closeMenu = () => {
@@ -70,8 +62,9 @@ const SideBar = () => {
             </div>}
             <div className='suggested-feed'>
                 <h4 className='suggested-headline'>Suggested accounts</h4>
-                <UsersList />
-                <h4 className='suggested-see-all'>See all</h4>
+                    {!seeMore ? <UsersList /> : <UsersList2 />}
+                {!seeMore && <h4 onClick={() => setSeeMore(true)} className='suggested-see-all'>See all</h4>}
+                {seeMore &&<h4 onClick={() => setSeeMore(false)} className='suggested-see-all'>See less</h4>}
             </div>
         </div>
     )
