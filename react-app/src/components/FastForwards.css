@@ -15,10 +15,24 @@
     gap: 25px;
 }
 
+.item-header3 {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    margin-left: 5%;
+    padding-bottom: 1%;
+}
+
 .item-header {
     display: flex;
     gap: 20px;
     align-items: center;
+    margin-left: 5%;
+}
+
+.item-wrapper {
+    box-shadow: rgb(255 255 255 / 12%) 0px 1px 1px;
+    padding-bottom: 2%;
 }
 
 .item-header2 {
@@ -65,14 +79,17 @@
     margin-top: 4px;
 }
 
-.flasForward-wrapper {
+#root > div > div.fastForward-wrapper {
     display: flex;
     align-items: center;
+    height: 890px;
+    width: 100%;
 }
 
-.video-details {
-    top: 0;
+#root > div > div.fastForward-wrapper > video {
+    background-color: black;
 }
+
 
 .video-comment {
     display: flex;
@@ -101,8 +118,8 @@
 }
 
 .comments-sidebar {
-    height: 525px;
-    margin-left: 10%
+    height: 700px;
+    width: 100%;
 }
 
 .comment-counter {
@@ -112,7 +129,9 @@
 
 .textarea-comments {
     position: absolute;
-
+    border-top: .3px solid rgb(89, 88, 88);
+    padding-top: 15px;
+    width: 700px;
 }
 
 #form1 > label > input[type=text] {
@@ -121,15 +140,17 @@
     caret-color: rgb(255, 59, 92);
     color: rgba(255, 255, 255, 0.9);
     outline: none;
-    width: 300px;
-    height: 25px;
+    width: 70%;
+    height: 35px;
     padding-left: 15px;
-    margin-bottom: 5%;
+    margin-left: 5%;
+    border-radius: 7px;
 }
 
 
 .comments-wrapper {
     height: 100%;
+    width: 700px;
 }
 
 #form1 > button {
@@ -138,4 +159,52 @@
     background-color: rgb(18, 18, 18);
     color: rgb(156, 155, 155);
     cursor: pointer;
+}
+
+#form1 > ul {
+    width: 500px;
+}
+
+.comment-wrapper2 {
+    display: flex;
+    flex-direction: column;
+    padding-top: 2%;
+}
+
+.profileImage2 {
+    width: 28px;
+    height: 28px;
+    border-radius: 33px;
+}
+
+#root > div > div.fastForward-wrapper > div > div.comments-wrapper > div > div.scroll-body > div > div.item-header > div {
+    color: white;
+    font-size: 18px;
+}
+
+.comment-body {
+    margin-left: 11.5%;
+    margin-top: 5px;
+    top: 0;
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 16px;
+}
+
+.comment-buttons {
+    margin-left: 11.5%;
+    margin-top: 10px;
+    display: flex;
+    gap: 10px;
+    color: rgba(255, 255, 255, 0.5);;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.scroll-body {
+    overflow-y: scroll;
+    max-height: 600px;
+}
+
+.edit-text {
+    margin-left: 11.5%;
 }

@@ -66,6 +66,9 @@ function App() {
               <SideBar2 />
               {!user && <h1>It looks like you aren't logged in! Log in and come back to view the creators you follow!</h1>}
             </Route>
+            <Route path='/fastForwards/:fastForwardId' exact={true} >
+              <FastForwardIndexItem />
+            </Route>
           </Switch>
         </BrowserRouter>
       </ModalProvider>

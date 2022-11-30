@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import './User.css'
 
-function UsersList() {
+function UsersList2() {
   const [users, setUsers] = useState([]);
 
   useEffect(() => {
@@ -14,7 +14,7 @@ function UsersList() {
     fetchData();
   }, []);
 
-  const userComponents = users.slice(0,5)?.map((user) => {
+  const userComponents = users.slice?.map((user) => {
     return (
       <div className='user-suggested' key={user.id}>
         <img className='profile' src={user?.image_url} alt="user logo" />
@@ -34,4 +34,4 @@ function UsersList() {
   );
 }
 
-export default UsersList;
+export default UsersList2;

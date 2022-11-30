@@ -37,7 +37,7 @@ const FastForwards = () => {
         <div>
             <div className="fast-forward-feed">{fastForwards?.map((fastForward) => (
                 <div>
-                    <div className="item-header">
+                    <div className="item-header3">
                         <div className="left">
                             <img
                                 src={fastForward.User.image_url}
@@ -50,8 +50,8 @@ const FastForwards = () => {
                                 <div className="video-username">{fastForward.User.username}</div>
                                 <div className="video-name">{fastForward.User.first_name} {fastForward.User.last_name}</div>
                             </div>
-                            <div className="caption">
-                                {fastForward.caption}
+                            <div className="caption-wrapper">
+                            <NavLink className="caption" to={`/fastForwards/${fastForward.id}`} exact={true}>{fastForward.caption}</NavLink>
                             </div>
                         </div>
                     </div>
@@ -61,91 +61,12 @@ const FastForwards = () => {
                         </video>
                         {user &&
                             <div className="video-sidebar">
-                                <div onClick={openMenu} className="comment-wrapper">
+                                <NavLink to={`/fastForwards/${fastForward?.id}`} className="comment-wrapper">
                                     <i id='comment-icon' class="fa-regular fa-comment"></i>
-                                </div>
+                                </NavLink>
                                 <div className="comment-counter">{fastForward?.Comments?.length}</div>
                             </div>}
                         <div className="comments">
-                            {showMenu && (
-                                <div className="comments-wrapper">
-                                    <div className="comments-sidebar">
-                                        <div className="item-header">
-                                            <div className="left">
-                                                <img
-                                                    src={fastForward.User.image_url}
-                                                    alt="Profile"
-                                                    className="profileImage"
-                                                />
-                                            </div>
-                                            <div className="right">
-                                                <div className="item-header2">
-                                                    <div className="video-username">{fastForward.User.username}</div>
-                                                    <div className="video-name">{fastForward.User.first_name} {fastForward.User.last_name}</div>
-                                                </div>
-                                                <div className="caption-wrapper">
-                                                    <NavLink className="caption" to={`/fastForwards/${fastForward.id}`} exact={true}>{fastForward.caption}</NavLink>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        {fastForward.Comments?.map((comment) => (
-                                            <div className="comment-wrapper2">
-                                                <div className="item-header">
-                                                    <img
-                                                        src={comment.User.image_url}
-                                                        alt="Profile"
-                                                        className="profileImage"
-                                                    ></img>
-                                                    <div>{comment.User.username}</div>
-                                                </div>
-                                                <div className="comment-body">{comment.body}</div>
-                                                {comment?.user_id === user?.id && (
-                                                    <div className="comment-buttons">
-                                                        <div
-                                                            className="detailButton1"
-                                                            onClick={() => handleDelete(comment.id, fastForward.id)}
-                                                        >
-                                                            <i class="fa-solid fa-trash"></i>
-                                                        </div>
-                                                        <div
-                                                            id={comment.id}
-                                                            value={comment.id}
-                                                            className="detailButton2"
-                                                            onClick={() => {
-                                                                if (editId === comment.id) {
-                                                                    setEditId(-1);
-                                                                    setEditId("");
-                                                                    return;
-                                                                }
-                                                                setEditId(comment.id);
-                                                                setCommentBody(comment.body);
-                                                            }}
-                                                        >
-                                                            <i class="fa-solid fa-pen"></i>
-                                                        </div>
-                                                    </div>
-                                                )}
-                                                <div className="editform">
-                                                    {editId === comment.id && (
-                                                        <CommentEditForm
-                                                            className="comment-edit-form"
-                                                            fastForwardId={fastForward.id}
-                                                            comment={comment}
-                                                            setCommentBody={setCommentBody}
-                                                            commentBody={commentBody}
-                                                            setEditId={setEditId}
-                                                        />
-                                                    )}
-                                                </div>
-                                            </div>
-                                        ))}
-                                    </div>
-                                    <div className="textarea-comments">
-                                        <CommentForm
-                                            fastForwardId={fastForward.id} />
-                                    </div>
-                                </div>
-                            )}
                         </div>
                     </div>
                 </div>))}</div>
