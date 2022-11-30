@@ -68,11 +68,11 @@ const FastForwardIndexItem = () => {
                                         <NavLink className="caption" to={`/fastForwards/${fastForward?.id}`} exact={true}>{fastForward?.caption}</NavLink>
                                     </div>
                                     {fastForward?.User?.id === user?.id &&
-                                        <div>
-                                            <button onClick={deleteFastForward} className="profButtons">
+                                        <div className="comment-buttons">
+                                            <div onClick={deleteFastForward} className="delete-button">
                                                 Delete
-                                            </button>
-                                            <button className="profButtons"
+                                            </div>
+                                            <div className="edit-button"
                                              id={fastForward.id}
                                              value={fastForward.id}
                                              onClick={() => {
@@ -86,7 +86,7 @@ const FastForwardIndexItem = () => {
                                                 setCaptionBody(fastForward.caption);
                                             }}>
                                                 Edit
-                                            </button>
+                                            </div>
                                         </div>}
                                         <div className="editform">
                                         {showEdit && (
