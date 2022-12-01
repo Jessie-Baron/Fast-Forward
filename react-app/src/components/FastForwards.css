@@ -67,6 +67,8 @@
 .video-username {
     font-weight: bold;
     font-size: 18px;
+    text-decoration: none;
+    color: white;
 }
 
 .video-username:hover {

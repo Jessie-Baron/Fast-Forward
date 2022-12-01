@@ -1,12 +1,23 @@
 import React, { useEffect, useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { useSelector, useDispatch } from "react-redux";
+import * as followActions from '../store/follower'
 import './User.css'
 
 function FollowingList() {
 
   const [follows, setFollows] = useState([]);
   const user = useSelector((state) => state.session.user);
+  const [isLoaded, setIsLoaded] = useState(false);
+  const dispatch = useDispatch();
+
+
+  useEffect(() => {
+    if (user) {
+      dispatch(followActions.followingList(user.id))
+      .then(() => setIsLoaded(true))
+    }
+  }, [dispatch, isLoaded]);
 
   useEffect(() => {
     async function fetchData() {

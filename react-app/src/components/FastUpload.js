@@ -104,7 +104,7 @@ const UploadClip = () => {
                 </div>
                 </div>
                 <div className="submit-buttons">
-                <button className='submit-button-upload' type="submit">Submit</button>
+                {!hasSubmitted && <button className='submit-button-upload' type="submit">Submit</button>}
                 {(clipLoading) && <p>Loading...</p>}
                 </div>
             </form>

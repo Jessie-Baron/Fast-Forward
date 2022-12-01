@@ -26,12 +26,10 @@ const FastForwardIndexItem = () => {
     const [editId, setEditId] = useState(-1);
     const [editId2, setEditId2] = useState(-1);
     const [following, setFollowing] = useState(followings.includes(fastForward?.User.id))
+    const [isLoaded, setIsLoaded] = useState(false);
     const { id } = useParams();
     const history = useHistory();
     const dispatch = useDispatch();
-
-    console.log(followings.includes(fastForward?.User.id))
-
 
     useEffect(() => {
         dispatch(fastForwardActions.fetchAllFastForwards());
@@ -58,6 +56,13 @@ const FastForwardIndexItem = () => {
                 .then(() => setFollowing(false))
         }
     }
+
+    useEffect(() => {
+        if (user) {
+          dispatch(followActions.followingList(user.id))
+          .then(() => setIsLoaded(true))
+        }
+      }, [dispatch, isLoaded]);
 
     return (
         <div className="fastForward-wrapper">
