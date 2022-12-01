@@ -4,3 +4,14 @@ body {
     font-family: Arial,Tahoma,PingFangSC,sans-serif;
     background-color: rgb(18, 18, 18);;
 }
+
+body::-webkit-scrollbar {
+    width: 8px;
+}
+
+body::-webkit-scrollbar-thumb {
+    width: 6px;
+    height: 100%;
+    border-radius: 3px;
+    background: rgba(255, 255, 255, .08);
+}

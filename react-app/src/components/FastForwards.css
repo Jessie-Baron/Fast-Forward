@@ -249,7 +249,7 @@
     user-select: none;
     cursor: pointer;
     box-sizing: border-box;
-    margin-left: 250px;
+    margin-left: 150px;
 }
 
 .follow-user-button:hover {
@@ -278,10 +278,150 @@
     user-select: none;
     cursor: pointer;
     box-sizing: border-box;
-    margin-left: 250px;
+    margin-left: 150px;
 }
 
 .following-user-button:hover {
     cursor: pointer;
     background-color: #141414;
+}
+
+.follow-feed {
+    margin-left: 45%;
+    margin-top: 4%;
+}
+
+.upload-headline-wrapper {
+    display: flex;
+    flex-direction: column;
+    margin-top: 50px;
+    margin-left: 5%;
+}
+
+.upload-title {
+    color: white;
+}
+
+.upload-header-text {
+    color: white;
+}
+
+.caption-label {
+    color: white;
+}
+
+.upload-subtitle {
+    color: rgb(169, 166, 166);
+    margin-bottom: 45px;
+}
+
+.upload-page {
+    margin-left: 150px;
+    margin-right: 150px;
+    margin-top: 10%;
+    height: 600px;
+    background-color: rgb(37, 37, 37);
+    box-shadow: rgb(0 0 0 / 6%) 0px 2px 8px;
+}
+
+.upload-block {
+    border: 2px dashed rgb(169, 166, 166);
+    width: 250px;
+    height: 350px;
+    margin-left: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.upload-list {
+    list-style: none;
+    padding-left: 0px;
+}
+
+.upload-sub-text {
+    font-size: 12px;
+    top: 0;
+    bottom: 0;
+    color: rgb(169, 166, 166);
+}
+
+#cloud-icon {
+    font-size: 28px;
+    color: grey;
+}
+
+.file-drop {
+    margin-top: 35px;
+    margin-left: 60px;
+}
+
+.form-fields {
+    display: flex;
+    gap: 55px;
+}
+
+.caption-block {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    height: 35px;
+    width: 650px;
+    margin-top: 200px;
+}
+
+.caption-input {
+    border: none;
+    background-color: rgb(62, 62, 62);
+    caret-color: rgb(255, 59, 92);
+    color: rgba(255, 255, 255, 0.9);
+    outline: none;
+    width: 100%;
+    height: 35px;
+    padding-left: 15px;
+}
+
+.submit-buttons {
+    margin-left: 45%;
+    position: relative;
+    width: 150px;
+    margin-bottom: 550px;
+    display: flex;
+    gap: 35px;
+}
+
+.discard-button {
+    border-radius: 4px;
+    border: .4px solid rgb(189, 188, 188);
+    color: black;
+    background-color: white;
+    min-width: 180px;
+    min-height: 46px;
+    font-size: 16px;
+    line-height: 22px;
+}
+
+.submit-button-upload {
+    border-radius: 4px;
+    border: none;
+    color: rgb(255, 255, 255);
+    background-color: rgb(255, 59, 92);
+    min-width: 380px;
+    min-height: 46px;
+    font-size: 16px;
+    line-height: 22px;
+}
+
+.submit-button-upload:hover {
+    background-color: rgb(250, 41, 76);
+    cursor: pointer;
+}
+
+.discard-button:hover {
+    background-color: rgb(243, 243, 243);
+    cursor: pointer;
+}
+
+#root > div > div.upload-page > form > div.submit-buttons > p {
+    color: white;
 }

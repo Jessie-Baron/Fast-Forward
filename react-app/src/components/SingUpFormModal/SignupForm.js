@@ -61,86 +61,106 @@ const SignUpForm = () => {
     }
 
     return (
-      <form onSubmit={onSignUp}>
+      <form className='signup-form'onSubmit={onSignUp}>
         <div>
           {errors.map((error, ind) => (
             <div key={ind}>{error}</div>
           ))}
         </div>
-        <div>
-          <label>First Name</label>
+        <center>
+          <h2 className="modal-header">Sign Up</h2>
+        </center>
+        <div className="signup-scroll-content">
+        <div className="signup-input">
           <input
+            className="loginEmailInput"
             type='text'
             name='firstName'
+            placeholder="First Name"
             onChange={updatedFirstName}
             value={firstName}
+            required
           ></input>
         </div>
-        <div>
-          <label>Last Name</label>
+        <div id='lastname-input'className="signup-input">
           <input
+            className="loginEmailInput"
             type='text'
             name='lastName'
+            placeholder="Last Name"
             onChange={updatedLastName}
             value={lastName}
+            required
           ></input>
         </div>
-        <div>
-          <label>Tell us about yourself!</label>
+        <div className="signup-input" id='signup-textarea'>
           <textarea
+            className="loginEmailInput"
             type='text'
             name='bio'
+            placeholder="Tell us about yourself!"
             onChange={updatedBio}
             value={bio}
+            required
           ></textarea>
         </div>
-        <div>
-          <label>Upload a Profile Picture!</label>
+        <div className="signup-input">
           <input
+            className="loginEmailInput"
             type='text'
             name='imageUrl'
+            placeholder="Upload a Profile Picture!"
             onChange={updatedImageUrl}
             value={imageUrl}
+            required
           ></input>
         </div>
-        <div>
-          <label>User Name</label>
+        <div className="signup-input">
           <input
+            className="loginEmailInput"
             type='text'
             name='username'
+            placeholder="User Name"
             onChange={updateUsername}
             value={username}
+            required
           ></input>
         </div>
-        <div>
-          <label>Email</label>
+        <div className="signup-input">
           <input
+            className="loginEmailInput"
             type='text'
             name='email'
+            placeholder="Email"
             onChange={updateEmail}
             value={email}
+            required
           ></input>
         </div>
-        <div>
-          <label>Password</label>
+        <div className="signup-input">
           <input
+            className="loginEmailInput"
             type='password'
             name='password'
+            placeholder="Password"
             onChange={updatePassword}
             value={password}
+            required
           ></input>
         </div>
-        <div>
-          <label>Repeat Password</label>
+        <div className="signup-input">
           <input
+            className="loginEmailInput"
             type='password'
             name='repeat_password'
+            placeholder="Repeat Password"
             onChange={updateRepeatPassword}
             value={repeatPassword}
             required={true}
           ></input>
         </div>
-        <button type='submit'>Sign Up</button>
+        </div>
+        <button className='signup-button' type='submit'>Sign Up</button>
       </form>
     );
   };

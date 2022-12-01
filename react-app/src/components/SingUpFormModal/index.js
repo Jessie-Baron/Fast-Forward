@@ -7,16 +7,12 @@ function SignupFormModal({startedButton}) {
 
   return (
     <>
-      <button
-        className={
-          startedButton
-            ? "get-started-button started-active"
-            : "get-started-button"
-        }
+      <span
+        className='signup-text-link'
         onClick={() => setShowModal(true)}
       >
-        Get Started
-      </button>
+        Sign Up
+      </span>
       {showModal && (
         <Modal onClose={() => setShowModal(false)}>
           <LoginForm setShowModal={setShowModal} />

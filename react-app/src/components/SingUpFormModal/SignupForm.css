@@ -1,32 +1,72 @@
-#modal-content {
-    width: 300px;
-    height: 300px;
-    padding: 30px;
+.signup-form {
+    width: 483px;
+    height: 600px;
     display:flex;
+    padding: 48px 0px 0px;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
-    background-color: white;
+    background-color: rgb(37, 37, 37);
     border: 1px solid rgba(0, 0, 0, 0.04);
     border-radius: 7px;
     box-shadow: 0 16px 24px 2px rgba(0, 0, 0, 0.14);
+    overflow-y: scroll;
 }
 
-#modal-content > div > form {
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-}
-
-#modal-content > div > form > button {
-    background-color: white;
-    border: .5px solid black;
-    margin-left: 15px;
-    margin-top: 30px;
-    color: black;
-}
-
-#modal-content > div > form > button:hover {
+.signup-text-link {
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 18px;
+    color: rgb(255, 59, 92);
     cursor: pointer;
-    border-color: rgb(105, 104, 104);
 }
+
+
+.signup-form::-webkit-scrollbar {
+    width: 8px;
+}
+
+.signup-form::-webkit-scrollbar-thumb {
+    width: 6px;
+    height: 100%;
+    border-radius: 3px;
+    background: rgba(255, 255, 255, .08);
+}
+
+.signup-input {
+    width: 285px;
+    color: rgba(255, 255, 255, 0.9);
+    font-weight: 600;
+    border: 1px solid rgba(255, 255, 255, 0);
+    font-size: 15px;
+    padding: 0px 12px;
+    height: 44px;
+    background: rgb(46, 46, 46);
+    margin-bottom: 15px;
+    display: flex;
+    outline: none;}
+
+    #signup-textarea {
+        height: 100px;
+        color: rgb(46, 46, 46);
+    }
+
+    .signup-button {
+        border-radius: 4px;
+        border: none;
+        color: rgb(255, 255, 255);
+        background-color: rgb(255, 59, 92);
+        min-width: 320px;
+        min-height: 46px;
+        font-size: 16px;
+        line-height: 22px;
+        margin-top: 20px;
+    }
+
+    .signup-button:hover {
+        background-color: rgb(250, 41, 76);
+        cursor: pointer;
+    }
+
+    #lastname-input {
+        margin-top: 0px;
+    }

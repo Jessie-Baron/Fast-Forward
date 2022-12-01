@@ -59,7 +59,7 @@ const LoginForm = () => {
           ))}
         </div>
         <center>
-          <h2>Log in to FastForward</h2>
+          <h2 className="modal-header">Log in to FastForward</h2>
         </center>
         <div className='inner-login'>
           <div className="login-input">
@@ -70,6 +70,7 @@ const LoginForm = () => {
             placeholder="Email"
             value={email}
             onChange={updateEmail}
+            required
           />
           </div>
           <div>
@@ -81,6 +82,7 @@ const LoginForm = () => {
               placeholder="Password"
               value={password}
               onChange={updatePassword}
+              required
             />
             </div>
           </div>

@@ -14,6 +14,7 @@ import FastUpload from './components/FastUpload';
 import { ModalProvider } from "./context/Modal";
 import FastForwards from './components/FastForward';
 import FastForwardIndexItem from './components/FastForwardIndexItem'
+import FollowFeed from './components/FollowFeed';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -65,6 +66,7 @@ function App() {
               <NavBar />
               <SideBar2 />
               {!user && <h1>It looks like you aren't logged in! Log in and come back to view the creators you follow!</h1>}
+              {user && <FollowFeed />}
             </Route>
             <Route path='/fastForwards/:fastForwardId' exact={true} >
               <FastForwardIndexItem />
