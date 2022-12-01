@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { useHistory } from "react-router-dom";
+import { Redirect, useHistory } from "react-router-dom";
 import './FastForwards.css'
 import * as fastForwardActions from "../store/fastForward";
 import NavBar from "./NavBar";
@@ -59,9 +59,7 @@ const UploadClip = () => {
         setClip(file);
     }
 
-    const handleClick = event => {
-        event.currentTarget.disabled = true;
-      };
+
 
 
     return (
@@ -91,6 +89,7 @@ const UploadClip = () => {
                         accept="clip/*"
                         encType="multipart/form-data"
                         onChange={updateClip}
+                        required
                     />
                 </div>
                 <div className='caption-block'>
@@ -105,7 +104,7 @@ const UploadClip = () => {
                 </div>
                 </div>
                 <div className="submit-buttons">
-                <button className='submit-button-upload' onClick={handleClick}type="submit">Submit</button>
+                <button className='submit-button-upload' type="submit">Submit</button>
                 {(clipLoading) && <p>Loading...</p>}
                 </div>
             </form>
