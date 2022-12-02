@@ -15,16 +15,16 @@ function User() {
   const fastForwards = Object.values(fastForwardsObj)
   const [isLoaded, setIsLoaded] = useState(false);
 
-  useEffect(() => {
+useEffect(() => {
     dispatch(fastForwardActions.fetchAllFastForwards());
-}, [dispatch]);
+}, [dispatch, userId]);
 
 useEffect(() => {
   if (user) {
-    dispatch(followActions.followingList(user.id))
+    dispatch(followActions.followingList(userId))
     .then(() => setIsLoaded(true))
   }
-}, [dispatch, isLoaded]);
+}, [dispatch, isLoaded, userId, user]);
 
 
   useEffect(() => {
