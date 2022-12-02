@@ -70,3 +70,8 @@
     #lastname-input {
         margin-top: 0px;
     }
+
+    #modal-content > form > div:nth-child(1) {
+        color: rgb(201, 0, 0);
+        font-size: 14px;
+    }
