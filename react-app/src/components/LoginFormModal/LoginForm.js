@@ -86,7 +86,7 @@ const LoginForm = () => {
             />
             </div>
           </div>
-          <button className='demos' onClick={signInDemo}>
+          {/* <button className='demos' onClick={signInDemo}>
             <img className="facebook" src='https://upload.wikimedia.org/wikipedia/en/thumb/0/04/Facebook_f_logo_%282021%29.svg/640px-Facebook_f_logo_%282021%29.svg.png' alt='facebook' />
             <div className="demo-text">Continue with FaceBook</div>
           </button>
@@ -97,7 +97,7 @@ const LoginForm = () => {
           <button className='demos' onClick={signInDemo}>
             <img className="insta" src='https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Instagram_logo_2022.svg/1200px-Instagram_logo_2022.svg.png' alt='insta' />
             <div className="demo-text">Continue with Instagram</div>
-          </button>
+          </button> */}
           <div className="signin-buttons">
             <button id="login" className="loginBt" type="submit">
               Login
