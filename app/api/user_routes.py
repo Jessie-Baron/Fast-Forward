@@ -27,7 +27,6 @@ def user(id):
 
 # get all users I am following
 @user_routes.route("/<int:id>/following")
-@login_required
 def following(id):
     user = User.query.get(id)
     following = user.following.all()
@@ -38,7 +37,6 @@ def following(id):
 
 # get all users who follow me
 @user_routes.route("/<int:id>/followers")
-@login_required
 def followers(id):
     user = User.query.get(id)
     followers = user.followers.all()

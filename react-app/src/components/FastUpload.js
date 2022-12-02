@@ -51,7 +51,7 @@ const UploadClip = () => {
         }
 
         await dispatch(fastForwardActions.fetchPostFastForward(fastForward))
-            .then(history.push('/'))
+            .then(history.push(`/users/${user.id}`))
     }
 
     const updateClip = (e) => {

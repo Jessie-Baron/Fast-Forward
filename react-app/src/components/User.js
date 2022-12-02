@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from "react-redux";
-import { useParams } from 'react-router-dom';
+import { NavLink, useParams } from 'react-router-dom';
 import * as fastForwardActions from "../store/fastForward";
 import * as followActions from '../store/follower'
 import './User.css'
@@ -82,9 +82,12 @@ useEffect(() => {
       <div className='user-bio'>{user.bio}</div>
       <div className='video-user-wrapper'>
         {filtered.map(fastForward => (
+          <div>
           <video className='video' controls onMouseOver={event => event.target.play()} onMouseOut={event => event.target.pause()} width="200" height="300" border-radius='8'>
             <source src={fastForward.url} type="video/mp4" />
           </video>
+          <NavLink to={`/fastForwards/${fastForward?.id}`} className='caption-user'>{fastForward.caption}</NavLink>
+          </div>
         ))}
       </div>
     </div>

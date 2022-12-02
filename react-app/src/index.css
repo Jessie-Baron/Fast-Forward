@@ -15,3 +15,10 @@ body::-webkit-scrollbar-thumb {
     border-radius: 3px;
     background: rgba(255, 255, 255, .08);
 }
+
+.master-follow-feed {
+    color: white;
+    margin-left: 40%;
+    margin-top: 25%;
+    width: 750px;
+}

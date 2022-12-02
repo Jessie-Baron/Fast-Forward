@@ -40,7 +40,7 @@
     flex-direction: column;
 }
 .user-page-headline {
-    margin-left: 30%;
+    margin-left: 35%;
     display: flex;
     gap: 20px;
     align-items: center;
@@ -69,7 +69,7 @@
 }
 
 .user-followers {
-    margin-left: 31%;
+    margin-left: 36%;
     margin-top: 15px;
     display: flex;
     gap: 50px;
@@ -90,15 +90,22 @@
     display: grid;
     grid-template-columns: repeat(6, 1fr);
     gap: 10px;
-    margin-left: 28%;
+    margin-left: 33%;
     margin-top: 25px;
 }
 
 .user-bio {
-    margin-left: 31%;
+    margin-left: 36%;
     margin-top: 1%;
     font-weight: 400;
     font-size: 16px;
     line-height: 22px;
     color: rgba(255, 255, 255, 0.75);
+}
+
+.caption-user {
+    margin-left: 10%;
+    margin-top: 3%;
+    color: rgba(255, 255, 255, 0.75);
+    overflow: hidden;
 }

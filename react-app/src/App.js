@@ -48,15 +48,15 @@ function App() {
             <Route path='/sign-up' exact={true}>
               <SignUpForm />
             </Route>
-            <ProtectedRoute path='/users' exact={true} >
+            <Route path='/users' exact={true} >
               <SideBar2 />
               <UsersList />
-            </ProtectedRoute>
-            <ProtectedRoute path='/users/:userId' exact={true} >
+            </Route>
+            <Route path='/users/:userId' exact={true} >
               <NavBar />
               <SideBar2 />
               <User />
-            </ProtectedRoute>
+            </Route>
             <Route path='/' exact={true} >
               <NavBar />
               <SideBar />
@@ -65,7 +65,7 @@ function App() {
             <Route path='/following' exact={true} >
               <NavBar />
               <SideBar2 />
-              {!user && <h1>It looks like you aren't logged in! Log in and come back to view the creators you follow!</h1>}
+              {!user && <h1 className='master-follow-feed'>It looks like you aren't logged in! Log in and come back to view the creators you follow!</h1>}
               {user && <FollowFeed />}
             </Route>
             <Route path='/fastForwards/:fastForwardId' exact={true} >
