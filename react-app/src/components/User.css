@@ -107,5 +107,10 @@
     margin-left: 10%;
     margin-top: 3%;
     color: rgba(255, 255, 255, 0.75);
-    overflow: hidden;
+    max-width: 200px;
+    max-height: 20px;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    text-decoration: none;
+    display: block;
 }

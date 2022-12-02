@@ -247,6 +247,7 @@
     font-weight: 600;
     font-size: 14px;
     line-height: 20px;
+    cursor: pointer;
 }
 
 .suggested-feed {
@@ -287,9 +288,9 @@
     margin-top: 2px;
     position: absolute;
     top: 100%;
-    width: 220px;
+    width: 200px;
     z-index: 100;
-    margin-left: 68%;
+    margin-left: 63%;
 }
 
 .main-menu-inner {
@@ -299,7 +300,46 @@
 }
 
 .main-menu-wrapper {
-    min-width: 280px;
+    min-width: 200px;
     padding: 24px 0;
     display: block;
+}
+
+.dropdown-info {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    color: rgb(156, 155, 155);
+    width: 200px;
+}
+
+.dropdown-links {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    gap: 5px;
+}
+
+.info-item {
+    top: 0;
+    bottom: 0;
+    margin-top: 0px;
+}
+
+.dropdown-divider {
+    width: 70%;
+    border-color: rgb(178, 178, 178);
+    opacity: .4;
+}
+
+.dropdown-link-item {
+    text-decoration: none;
+    color: white;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.dropdown-link-item:hover {
+    cursor: pointer;
+    background-color: #2a2a2a;
 }

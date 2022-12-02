@@ -75,16 +75,15 @@ useEffect(() => {
           </div>
         </div>
       </div>
-      <div className='user-followers'>
+      {/* <div className='user-followers'>
         <div><span className='user-followers-count'>{followsUser.length}</span> following</div>
         <div><span className='user-followers-count'>{followingUser.length}</span> followers</div>
-      </div>
+      </div> */}
       <div className='user-bio'>{user.bio}</div>
       <div className='video-user-wrapper'>
         {filtered.map(fastForward => (
           <div>
-          <video className='video' controls onMouseOver={event => event.target.play()} onMouseOut={event => event.target.pause()} width="200" height="300" border-radius='8'>
-            <source src={fastForward.url} type="video/mp4" />
+          <video src={fastForward.url} type="video/mp4" className='video' controls onMouseOver={event => event.target.play()} onMouseOut={event => event.target.pause()} width="200" height="300" border-radius='8'>
           </video>
           <NavLink to={`/fastForwards/${fastForward?.id}`} className='caption-user'>{fastForward.caption}</NavLink>
           </div>

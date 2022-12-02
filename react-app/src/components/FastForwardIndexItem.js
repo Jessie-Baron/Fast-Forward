@@ -45,24 +45,24 @@ const FastForwardIndexItem = () => {
         await dispatch(fastForwardActions.fetchAllFastForwards())
     };
 
-    const handleClick = () => {
-        if (!following) {
-            dispatch(followActions.follow(user.id, fastForward.user_id))
-            // .then(() => followActions.followingList(user.id))
-            setFollowing(true)
-        } else {
-            dispatch(followActions.unfollow(user.id, fastForward.user_id))
-                // .then(() => followActions.followingList(user.id))
-                .then(() => setFollowing(false))
-        }
-    }
+    // const handleClick = () => {
+    //     if (!following) {
+    //         dispatch(followActions.follow(user.id, fastForward.user_id))
+    //         // .then(() => followActions.followingList(user.id))
+    //         setFollowing(true)
+    //     } else {
+    //         dispatch(followActions.unfollow(user.id, fastForward.user_id))
+    //             // .then(() => followActions.followingList(user.id))
+    //             .then(() => setFollowing(false))
+    //     }
+    // }
 
-    useEffect(() => {
-        if (user) {
-          dispatch(followActions.followingList(user.id))
-          .then(() => setIsLoaded(true))
-        }
-      }, [dispatch, isLoaded]);
+    // useEffect(() => {
+    //     if (user) {
+    //       dispatch(followActions.followingList(user.id))
+    //       .then(() => setIsLoaded(true))
+    //     }
+    //   }, [dispatch, isLoaded]);
 
     return (
         <div className="fastForward-wrapper">
@@ -123,11 +123,11 @@ const FastForwardIndexItem = () => {
                                         )}
                                     </div>
                                 </div>
-                                <div className="follow-button-holder">
+                                {/* <div className="follow-button-holder">
                                     {user && (user?.id !== fastForward?.user_id) && (
                                         <button className={following ? "following-user-button" : "follow-user-button"} onClick={handleClick}>{following ? 'Following' : 'Follow'}</button>
                                     )}
-                                </div>
+                                </div> */}
                             </div>
                         </div>
                         <div className="scroll-body">

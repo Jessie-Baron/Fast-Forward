@@ -65,8 +65,7 @@ function App() {
             <Route path='/following' exact={true} >
               <NavBar />
               <SideBar2 />
-              {!user && <h1 className='master-follow-feed'>It looks like you aren't logged in! Log in and come back to view the creators you follow!</h1>}
-              {user && <FollowFeed />}
+              <FastForwards />
             </Route>
             <Route path='/fastForwards/:fastForwardId' exact={true} >
               <FastForwardIndexItem />

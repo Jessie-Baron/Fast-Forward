@@ -57,8 +57,7 @@ const FastForwards = () => {
                         </div>
                     </div>
                     <div className="video-comment">
-                        <video className='video' controls onMouseOver={event => event.target.play()} onMouseOut={event => event.target.pause()} width="350" height="600" border-radius='8'>
-                            <source src={fastForward.url} type="video/mp4" />
+                        <video className='video' src={fastForward.url} type="video/mp4" controls onMouseOver={event => event.target.play()} onMouseOut={event => event.target.pause()} width="350" height="600" border-radius='8'>
                         </video>
                         {user &&
                             <div className="video-sidebar">

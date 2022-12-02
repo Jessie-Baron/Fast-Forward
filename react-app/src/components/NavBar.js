@@ -46,7 +46,7 @@ const NavBar = () => {
         <div className='nav-buttons'>
           <button className='upload-button'><NavLink className='upload' to='/upload' exact={true} activeClassName='active'>+ Upload</NavLink></button>
           {!user && <LoginFormModal className='login-button' nav={false} />}
-          {user && <i id='messages' class="fa-regular fa-paper-plane"></i>}
+          {/* {user && <i id='messages' class="fa-regular fa-paper-plane"></i>} */}
           {user && <img onClick={openMenu} className='navbar-profile' src={user.image_url} alt='profile' />}
         </div>
         {showMenu &&
@@ -55,26 +55,23 @@ const NavBar = () => {
               <div className='main-menu-inner'>
                 <span />
                 <div className='main-menu-wrapper'>
-                  <ul>
-                    <ul>
-                      <li>
-                        <div>
-                          <LogoutButton />
-                        </div>
-                      </li>
-                    </ul>
-                    <ul>
-                      <li>
-                        <div>
-                          <p>{user.username}</p>
-                          <p>{user.email}</p>
-                        </div>
-                        <NavLink to={`/users/${user.id}`}>
-                          <div>View Profile</div>
-                        </NavLink>
-                      </li>
-                    </ul>
-                  </ul>
+                  <div className='dropdown-info'>
+                    <p className='info-item'>{user.username}</p>
+                    <p className='info-item'>{user.first_name} {user.last_name}</p>
+                    <p className='info-item'>{user.email}</p>
+                  </div>
+                  <hr className='dropdown-divider' />
+                  <div className='dropdown-links'>
+                    <NavLink className='dropdown-link-item'to={`/users/${user.id}`}>
+                      <div>View Profile</div>
+                    </NavLink>
+                    <NavLink className='dropdown-link-item' to='/following'>
+                      <div>Top Creators</div>
+                    </NavLink>
+                    <div className='dropdown-link-item'>
+                      <LogoutButton />
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>

@@ -53,7 +53,7 @@ const SideBar = () => {
                 <div>
                     <NavLink className={followingButton ? "sideBar-container-clicked" : "sideBar-container"} to="/following" exact={true}>
                         <i id='following-logo' class="fa-solid fa-people-group"></i>
-                        <div onClick={following} className="following-text">Following</div>
+                        <div onClick={following} className="following-text">Top Creators</div>
                     </NavLink>
                 </div>
             </div>
@@ -68,12 +68,12 @@ const SideBar = () => {
                 {!seeMore && <h4 onClick={() => setSeeMore(true)} className='suggested-see-all'>See all</h4>}
                 {seeMore &&<h4 onClick={() => setSeeMore(false)} className='suggested-see-all'>See less</h4>}
             </div>
-            {user && <div className='suggested-feed'>
+            {/* {user && <div className='suggested-feed'>
                 <h4 className='suggested-headline'>Followed accounts</h4>
                     <FollowingList />
                 {!seeMore2 && <h4 onClick={() => setSeeMore2(true)} className='suggested-see-all'>See More</h4>}
                 {seeMore2 &&<h4 onClick={() => setSeeMore2(false)} className='suggested-see-all'>See less</h4>}
-            </div>}
+            </div>} */}
         </div>
     )
 }
