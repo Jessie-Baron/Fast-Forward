@@ -214,6 +214,7 @@
 
 .edit-text {
     margin-left: 11.5%;
+    resize: none;
 }
 
 .exit-redirect {
@@ -431,4 +432,24 @@
 
 #root > div > div.upload-page > form > div.submit-buttons > p {
     color: white;
+}
+
+.signin-text-comments {
+    color: rgb(255, 59, 92);
+    font-weight: 600;
+    border-radius: 2px;
+    padding: 14px 16px;
+    font-size: 16px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+}
+
+.comment-signin-wrapper {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    width: 90%;
+    margin-left: 25px;
+    background: rgb(37, 37, 37);
+    border-radius: 2px;
 }

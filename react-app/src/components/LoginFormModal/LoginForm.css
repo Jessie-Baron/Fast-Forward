@@ -54,6 +54,7 @@
     outline: none;
     width: 100%;
     padding-left: 15px;
+    resize: none;
 }
 .login-input {
     color: rgba(255, 255, 255, 0.9);
@@ -223,6 +224,6 @@
 }
 
 #modal-content > form > div > div:nth-child(1) > div {
-    color: rgb(127, 2, 2);
+    color: rgb(168, 0, 0);
     font-size: 14px;
 }

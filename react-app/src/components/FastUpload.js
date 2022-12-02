@@ -11,6 +11,7 @@ const UploadClip = () => {
     const [clipLoading, setClipLoading] = useState(false);
     const [caption, setCaption] = useState("");
     const [hasSubmitted, setHasSubmitted] = useState(false);
+    const [validationErrors, setValidationErrors] = useState("");
     const user = useSelector((state) => state.session.user);
     const dispatch = useDispatch()
     const history = useHistory()
@@ -40,9 +41,10 @@ const UploadClip = () => {
         }
         else {
             setClipLoading(false);
+            setHasSubmitted(false)
             // a real app would probably use more advanced
             // error handling
-            console.log("error");
+            return alert(`Please submit a valid mp4 or WebM file`);
         }
 
         const fastForward = {
