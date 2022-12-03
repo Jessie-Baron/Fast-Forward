@@ -85,8 +85,8 @@ const NavBar = () => {
           <input className='search-bar' type='search' onChange={event => setQuery(event.target.value)}>
           </input>
           <hr className="search-divider" />
-          <i id={!searchItem || !query ? "search-icon" : "search-icon-active"} class="fa-solid fa-magnifying-glass"></i>
-          <button className='search-button' disabled={!searchItem?.href || !query} onClick={() => history.push(`/users/${searchItem?.href.slice(-1)}`)}>
+          <i id={!searchItem || !query || searchItem === 0 ? "search-icon" : "search-icon-active"} class="fa-solid fa-magnifying-glass"></i>
+          <button className='search-button' disabled={!searchItem?.href || !query || searchItem === 0} onClick={() => history.push(`/users/${searchItem?.href.slice(-1)}`)}>
           </button>
         </form>
         <div className='nav-buttons'>

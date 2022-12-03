@@ -76,7 +76,16 @@ export const createComment = (fastForwardId, payload) => async dispatch => {
   if (response.ok) {
     const comment = await response.json();
     dispatch(add(comment));
+  } else if (response.status < 500) {
+    const data = await response.json();
+    console.log(data)
+    if (data.errors) {
+      return data.errors;
+    }
+  } else {
+    return ['An error occurred. Please try again.']
   }
+
 };
 
 

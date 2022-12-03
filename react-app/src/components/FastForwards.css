@@ -160,11 +160,18 @@
     width: 700px;
 }
 
-#form1 > button {
+.comment-button {
     margin-left: 5px;
     border: none;
     background-color: rgb(18, 18, 18);
     color: rgb(156, 155, 155);
+}
+
+.comment-button-active {
+    margin-left: 5px;
+    border: none;
+    background-color: rgb(18, 18, 18);
+    color: rgb(255, 59, 92);
     cursor: pointer;
 }
 

@@ -12,16 +12,20 @@ function CommentForm(fastForwardId) {
   const user = useSelector((state) => state.session.user);
   const fastId = (Object.values(fastForwardId)[0])
   const [body, setBody] = useState("");
-  const [validationErrors, setValidationErrors] = useState("");
+  const [validationErrors, setValidationErrors] = useState([]);
   const [hasSubmitted, setHasSubmitted] = useState(false);
   const dispatch = useDispatch()
   const history = useHistory()
 
   useEffect(() => {
     if (!body) {
-      setValidationErrors("Can't submit empty comment field");
+      setValidationErrors([]);
       return;
-    }});
+    }
+    const errors = [];
+    if (!body.length) errors.push("Please enter your comment");
+    if (body.length > 20) errors.push("Character limit exceeded")
+  }, [body]);
 
   const onSubmit = async (e) => {
     // Prevent the default form behavior so the page doesn't reload.
@@ -29,8 +33,7 @@ function CommentForm(fastForwardId) {
     setHasSubmitted(true);
 
     // Create a new object for the song form information.
-    const commentForm = {body};
-
+    const commentForm = { body };
 
     await dispatch(createComment(fastId, commentForm))
     await dispatch(fastForwardActions.fetchAllFastForwards())
@@ -43,20 +46,23 @@ function CommentForm(fastForwardId) {
 
   return (
     <form id="form1" noValidate onSubmit={onSubmit}>
-    <ul>
-    </ul>
-    {user && <label>
-      <input
-        type="text"
-        value={body}
-        onChange={(e) => setBody(e.target.value)}
-        required={true}
-      />
-    </label>}
-    {user && <button type="submit">Respond</button>}
-    {!user && <div className="comment-signin-wrapper"><NavLink to='/' className="signin-text-comments">Please log in to comment</NavLink></div>}
-  </form>
-);
+      <ul>
+        {validationErrors.map((error, idx) => (
+          <li key={idx}>{error}</li>
+        ))}
+      </ul>
+      {user && <label>
+        <input
+          type="text"
+          value={body}
+          onChange={(e) => setBody(e.target.value)}
+          required={true}
+        />
+      </label>}
+      {user && <button className={!body || body.length > 300 ? 'comment-button' : 'comment-button-active'} disabled={!body || body.length > 1} type="submit">Respond</button>}
+      {!user && <div className="comment-signin-wrapper"><NavLink to='/' className="signin-text-comments">Please log in to comment</NavLink></div>}
+    </form>
+  );
 }
 
 export default CommentForm;
