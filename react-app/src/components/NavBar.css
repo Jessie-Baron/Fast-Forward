@@ -19,10 +19,32 @@
     font-size: 20px;
     padding-top: 10px;
     padding-bottom: 10px;
-    padding-right: 20px;
+    padding-right: 10px;
+    z-index: 50;
+}
+
+#search-icon-active {
+    color: white;
+    font-size: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-right: 10px;
+    z-index: 500;
+}
+
+.search-button {
+    border: none;
+    outline: none;
+    opacity: 0;
+    width: 0px;
 }
 
 #search-icon:hover {
+    cursor: pointer;
+    color: rgb(156, 155, 155);
+}
+
+#search-icon-active:hover {
     cursor: pointer;
     color: rgb(156, 155, 155);
 }
@@ -344,7 +366,7 @@
     background-color: #2a2a2a;
 }
 
-#root > div > nav > div > div.search-items > div > div > img {
+.profile-navi {
     width: 45px;
     height: 45px;
     border-radius: 33px;
