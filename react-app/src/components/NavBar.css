@@ -343,3 +343,65 @@
     cursor: pointer;
     background-color: #2a2a2a;
 }
+
+#root > div > nav > div > div.search-items > div > div > img {
+    width: 45px;
+    height: 45px;
+    border-radius: 33px;
+}
+
+.search-results {
+    display: flex;
+    flex-direction: column;
+    color: white;
+    background-clip: padding-box;
+    left: 0;
+    top: 0;
+    padding-top: 0px;
+    list-style: none;
+    margin-top: 2px;
+    position: absolute;
+    top: 100%;
+    width: 250px;
+    z-index: 100;
+    margin-left: 34%;
+    margin-bottom: 15px;
+    background-color: rgb(49, 49, 49);
+    border-radius: 7px;
+
+}
+
+.search-result-items {
+    display: flex;
+}
+
+.search-results-header {
+    color: rgb(156, 155, 155);
+    padding-left: 15px;
+}
+
+.search-names {
+    color: rgb(156, 155, 155);
+}
+
+.user-suggested-nav {
+    display: flex;
+    gap: 10px;
+    color: rgb(156, 155, 155);
+    font-size: 14px;
+    margin-bottom: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 5px;
+    width: 2401x;
+    padding-left: 15px;
+}
+
+.user-suggested-nav:hover {
+    background-color: #2a2a2a;
+}
+
+.user-header-navi {
+    text-decoration: none;
+    color: white;
+}

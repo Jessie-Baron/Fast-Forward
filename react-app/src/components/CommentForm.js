@@ -27,7 +27,6 @@ function CommentForm(fastForwardId) {
     // Prevent the default form behavior so the page doesn't reload.
     e.preventDefault();
     setHasSubmitted(true);
-    if (validationErrors) return alert(`Please submit a valid comment`);
 
     // Create a new object for the song form information.
     const commentForm = {body};

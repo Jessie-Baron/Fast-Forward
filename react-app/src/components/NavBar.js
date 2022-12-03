@@ -1,15 +1,35 @@
 
 import { React, useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { NavLink } from 'react-router-dom';
+import * as fastForwardActions from "../store/fastForward";
 import LoginFormModal from './LoginFormModal';
 import LogoutButton from './auth/LogoutButton';
 import './NavBar.css'
+import FastForwards from './FastForward';
 
 const NavBar = () => {
 
   const user = useSelector((state) => state.session.user);
+  const dispatch = useDispatch();
   const [showMenu, setShowMenu] = useState(false)
+  const [usersNav, setUsersNav] = useState([]);
+  const [query, setQuery] = useState("")
+  const fastForwards = Object.values(useSelector((state) => state.fastForward));
+
+  useEffect(() => {
+    async function fetchData() {
+      const response = await fetch('/api/users/');
+      const responseData = await response.json();
+      setUsersNav(responseData.users);
+    }
+    fetchData();
+  }, []);
+
+  useEffect(() => {
+    dispatch(fastForwardActions.fetchAllFastForwards());
+  }, [dispatch]);
+
 
   const openMenu = () => {
     if (showMenu) return
@@ -38,7 +58,26 @@ const NavBar = () => {
           </NavLink>
         </div>
         <div className='search-items'>
-          <input className='search-bar' type='search'>
+          <div className='search-results'>
+            {query && <h5 className='search-results-header'>Accounts</h5>}
+             {query ? usersNav.filter(user => {
+              if (query === '') {
+                return user
+              } else if (user.username.toLowerCase().includes(query.toLocaleLowerCase())) {
+                return user
+              }
+            }).map((user, index) => (
+              <div className='user-suggested-nav' key={user.id}>
+                <img className='profile' src={user?.image_url} alt="user logo" />
+                <div className='suggested-text'>
+                  <NavLink className='user-header-navi' to={`/users/${user?.id}`}>{user.username}</NavLink>
+                  {user?.first_name}
+                  &nbsp;{user?.last_name}
+                </div>
+              </div>
+            )) : null}
+          </div>
+          <input className='search-bar' type='search' onChange={event => setQuery(event.target.value)}>
           </input>
           <hr className="search-divider" />
           <i id="search-icon" class="fa-solid fa-magnifying-glass"></i>
@@ -62,7 +101,7 @@ const NavBar = () => {
                   </div>
                   <hr className='dropdown-divider' />
                   <div className='dropdown-links'>
-                    <NavLink className='dropdown-link-item'to={`/users/${user.id}`}>
+                    <NavLink className='dropdown-link-item' to={`/users/${user.id}`}>
                       <div>View Profile</div>
                     </NavLink>
                     <NavLink className='dropdown-link-item' to='/following'>
