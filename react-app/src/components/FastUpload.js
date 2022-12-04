@@ -70,44 +70,58 @@ const UploadClip = () => {
                 <h3 className="upload-title">Upload Video</h3>
                 <h4 className="upload-subtitle">Post a video to your account</h4>
             </div>
+            <div className="upload-image">
+                <div id="upload-item-1" className="upload-item">
+                    <i id='upload-number-1' class="fa-solid fa-1">.</i>
+                    <h4 className="upload-item-text">Select a local file to upload</h4>
+                </div>
+                <div id="upload-item-2" className="upload-item">
+                    <i id='upload-number-2' class="fa-solid fa-2">.</i>
+                    <h4 className="upload-item-text">Write a caption below</h4>
+                </div>
+                <div id="upload-item-3" className="upload-item">
+                    <i id='upload-number-3' class="fa-solid fa-3">.</i>
+                    <h4 className="upload-item-text">Submit your file to be uploaded!</h4>
+                </div>
+            </div>
             <form className="upload-form" onSubmit={handleSubmit}>
                 <div className="form-fields">
-                <div className="upload-block">
-                    <h4 className="upload-header-text">Select video to upload</h4>
+                    <div className="upload-block">
+                        <h4 className="upload-header-text">Select video to upload</h4>
                         <i id='cloud-icon' class="fa-solid fa-cloud-arrow-up"></i>
 
                         <br />
                         <center>
-                        <ul className="upload-list">
-                        <h5 className="upload-sub-text">MP4 or WebM</h5>
-                        <h5 className="upload-sub-text">720x1280 resolution or higher</h5>
-                        <h5 className="upload-sub-text">Up to 10 minutes</h5>
-                        <h5 className="upload-sub-text">Less than 2 GB</h5>
-                        </ul>
+                            <ul className="upload-list">
+                                <h5 className="upload-sub-text">MP4 or WebM</h5>
+                                <h5 className="upload-sub-text">720x1280 resolution or higher</h5>
+                                <h5 className="upload-sub-text">Up to 10 minutes</h5>
+                                <h5 className="upload-sub-text">Less than 2 GB</h5>
+                            </ul>
                         </center>
-                    <input
-                        type="file"
-                        className="file-drop"
-                        accept="clip/*"
-                        encType="multipart/form-data"
-                        onChange={updateClip}
-                        required
-                    />
-                </div>
-                <div className='caption-block'>
-                    <label className="caption-label">Caption</label>
-                    <input
-                        type="text"
-                        className="caption-input"
-                        value={caption}
-                        onChange={(e) => setCaption(e.target.value)}
-                        required
-                    />
-                </div>
+                        <input
+                            type="file"
+                            className="file-drop"
+                            accept="clip/*"
+                            encType="multipart/form-data"
+                            onChange={updateClip}
+                            required
+                        />
+                    </div>
+                    <div className='caption-block'>
+                        <label className="caption-label">Caption</label>
+                        <input
+                            type="text"
+                            className="caption-input"
+                            value={caption}
+                            onChange={(e) => setCaption(e.target.value)}
+                            required
+                        />
+                    </div>
                 </div>
                 <div className="submit-buttons">
-                {!hasSubmitted && <button className='submit-button-upload' type="submit">Submit</button>}
-                {(clipLoading) && <p>Loading...</p>}
+                    {!hasSubmitted && <button className='submit-button-upload' type="submit">Submit</button>}
+                    {(clipLoading) && <p>Loading...</p>}
                 </div>
             </form>
         </div>

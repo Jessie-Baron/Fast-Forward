@@ -39,11 +39,6 @@
     width: 0px;
 }
 
-#search-icon:hover {
-    cursor: pointer;
-    color: rgb(156, 155, 155);
-}
-
 #search-icon-active:hover {
     cursor: pointer;
     color: rgb(156, 155, 155);
@@ -114,7 +109,7 @@
 .nav-buttons {
     display: flex;
     gap: 25px;
-    margin-left: 12%;
+    margin-left: 25%;
     margin-top: 5px;
     width: 100%;
 }

@@ -331,7 +331,8 @@
     margin-left: 150px;
     margin-right: 150px;
     margin-top: 10%;
-    height: 600px;
+    width: 1400px;
+    height: 700px;
     background-color: rgb(37, 37, 37);
     box-shadow: rgb(0 0 0 / 6%) 0px 2px 8px;
 }
@@ -356,6 +357,69 @@
     top: 0;
     bottom: 0;
     color: rgb(169, 166, 166);
+}
+
+.upload-image {
+    display: flex;
+    color: rgb(255, 59, 92);
+    font-size: 20px;
+    margin-left: 27%;
+    gap: 55px;
+    align-items: center;
+}
+
+.upload-item {
+    display: flex;
+    gap: 15px;
+    padding: 15px;
+    padding-top: 5px;
+    padding-left: 5px;
+    border-radius: 7px;
+    background-color: rgb(62, 62, 62);
+    width: 250px;
+}
+
+#upload-item-1 {
+    animation-name: myAnimation;
+    animation-iteration-count: infinite;
+    animation-duration: 15s;
+    animation-delay: 1s;
+    animation-fill-mode: forwards;
+}
+
+#upload-item-2 {
+    animation-name: myAnimation;
+    animation-iteration-count: infinite;
+    animation-duration: 15s;
+    animation-delay: 2s;
+    animation-fill-mode: forwards;
+}
+
+#upload-item-3 {
+    animation-name: myAnimation;
+    animation-iteration-count: infinite;
+    animation-duration: 15s;
+    animation-delay: 3s;
+    animation-fill-mode: forwards;
+}
+
+.upload-item-text {
+    color: white;
+}
+
+#upload-number-1 {
+    font-size: 60px;
+    line-height: 10px;
+}
+
+#upload-number-2 {
+    font-size: 60px;
+    line-height: 10px;
+}
+
+#upload-number-3 {
+    font-size: 60px;
+    line-height: 10px;
 }
 
 #cloud-icon {
@@ -383,6 +447,7 @@
     height: 35px;
     width: 650px;
     margin-top: 200px;
+    margin-left: 8%;
 }
 
 .caption-input {
@@ -459,4 +524,18 @@
     margin-left: 25px;
     background: rgb(37, 37, 37);
     border-radius: 2px;
+}
+
+@keyframes myAnimation {
+    0% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
 }
