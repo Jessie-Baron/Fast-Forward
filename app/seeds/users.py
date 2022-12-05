@@ -8,7 +8,7 @@ def seed_users():
     marnie = User(
         first_name='Marnie', last_name='Rodriguez', username='marnie',  bio='virgo <3', image_url='https://i.etsystatic.com/36532523/r/il/97ae46/4078306713/il_340x270.4078306713_n74s.jpg', email='marnie@aa.io', password='password')
     bobbie = User(
-        first_name='Bobbie', last_name='Smith', image_url='https://static-cse.canva.com/blob/951359/1600w-YTfEMXMuMCs.jpg', bio='Creator from South Georgia! Roll Tide!', username='bobbie', email='bobbie@aa.io', password='password')
+        first_name='Bobbie', last_name='Smiths', image_url='https://static-cse.canva.com/blob/951359/1600w-YTfEMXMuMCs.jpg', bio='Creator from South Georgia! Roll Tide!', username='bobbie', email='bobbie@aa.io', password='password')
     Bella = User(
         first_name='Bella', last_name='Poarch', image_url='https://p16-sign.tiktokcdn-us.com/tos-useast5-avt-0068-tx/673f78c28ed852aa8c3d97c43d8f1694~c5_720x720.jpeg?x-expires=1670414400&x-signature=Z7%2BTbckHy%2BCdQHzOZiOkBfH4owQ%3D', bio='No bio yet.', username='bellapoarch', email='bella@aa.io', password='password')
     Will = User(
