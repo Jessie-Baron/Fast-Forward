@@ -422,3 +422,25 @@
     text-decoration: none;
     color: white;
 }
+
+.fixed-sideBar {
+    color: rgb(156, 155, 155);
+}
+
+.socialIcon {
+    width: 25px;
+}
+
+.socialsContainer {
+    display: flex;
+    gap: 5px;
+}
+
+.social-footer {
+    font-size: 12px;
+}
+
+.sideBar-seperator {
+    opacity: .2;
+    border-color: grey;
+}
