@@ -63,7 +63,7 @@ function CommentEditForm({comment, setCommentBody, commentBody, setEditId, fastF
         required
       />
     </label>
-    <button type="submit">Respond</button>
+    <button className='comment-button' type="submit">Respond</button>
   </form>
 );
 }

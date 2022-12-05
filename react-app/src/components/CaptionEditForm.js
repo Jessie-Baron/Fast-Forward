@@ -64,7 +64,7 @@ function CaptionEditForm({setCaptionBody, captionBody, setShowEdit, fastForwardI
         required
       />
     </label>
-    <button type="submit">Respond</button>
+    <button className='comment-button' type="submit">Respond</button>
   </form>
 );
 }
