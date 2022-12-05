@@ -4,9 +4,9 @@ from app.models import db, FastForward, environment, SCHEMA
 # Adds a demo user, you can add other users here if you want
 def seed_fast_forwards():
     ff1 = FastForward(
-        user_id=1, url='https://static.videezy.com/system/resources/previews/000/008/445/original/Dark_Haired_Girl_in_disbelief_1.mp4', caption='test1')
+        user_id=1, url='https://jessie-projects.s3.amazonaws.com/51069aed6aa0451088ebe0b976d3dc11.mp4', caption='In my active era✨')
     ff2 = FastForward(
-        user_id=1, url='https://static.videezy.com/system/resources/previews/000/000/168/original/Record.mp4', caption='test2')
+        user_id=1, url='https://jessie-projects.s3.amazonaws.com/8c23ae438e514b4a8ab0157931ec9240.mp4', caption='I want to go to Brazil😌')
     ff3 = FastForward(
         user_id=1, url='https://static.videezy.com/system/resources/previews/000/008/302/original/Dark_Haired_Girl_angry_-what-!-_1.mp4', caption='test3')
     ff4 = FastForward(
@@ -21,7 +21,7 @@ def seed_fast_forwards():
         user_id=3, url='https://static.videezy.com/system/resources/previews/000/044/249/original/01__2822_29.mp4', caption='test8')
     ff9 = FastForward(
         user_id=3, url='https://static.videezy.com/system/resources/previews/000/044/903/original/telepoorte_fnl.mp4', caption='test9')
-        
+
     db.session.add(ff1)
     db.session.add(ff2)
     db.session.add(ff3)
