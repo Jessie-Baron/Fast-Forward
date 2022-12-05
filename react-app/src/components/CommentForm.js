@@ -24,7 +24,6 @@ function CommentForm(fastForwardId) {
     }
     const errors = [];
     if (!body.length) errors.push("Please enter your comment");
-    if (body.length > 20) errors.push("Character limit exceeded")
   }, [body]);
 
   const onSubmit = async (e) => {
@@ -59,7 +58,7 @@ function CommentForm(fastForwardId) {
           required={true}
         />
       </label>}
-      {user && <button className={!body || body.length > 300 ? 'comment-button' : 'comment-button-active'} disabled={!body || body.length > 1} type="submit">Respond</button>}
+      {user && <button className={!body || body.length > 300 ? 'comment-button' : 'comment-button-active'} disabled={!body || body.length > 300} type="submit">Respond</button>}
       {!user && <div className="comment-signin-wrapper"><NavLink to='/' className="signin-text-comments">Please log in to comment</NavLink></div>}
     </form>
   );
