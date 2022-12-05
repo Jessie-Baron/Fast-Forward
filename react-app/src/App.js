@@ -15,6 +15,7 @@ import { ModalProvider } from "./context/Modal";
 import FastForwards from './components/FastForward';
 import FastForwardIndexItem from './components/FastForwardIndexItem'
 import FollowFeed from './components/FollowFeed';
+import TopCreators from './components/TopCreators';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -65,7 +66,7 @@ function App() {
             <Route path='/following' exact={true} >
               <NavBar />
               <SideBar2 />
-              <FastForwards />
+              <TopCreators />
             </Route>
             <Route path='/fastForwards/:fastForwardId' exact={true} >
               <FastForwardIndexItem />

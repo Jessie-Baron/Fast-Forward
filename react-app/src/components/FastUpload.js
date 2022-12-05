@@ -24,6 +24,12 @@ const UploadClip = () => {
         const formData = new FormData();
         formData.append("clip", clip);
 
+        if(caption.length >= 2500)  {
+            alert("Character limit exceeded")
+            setClipLoading(false)
+            return;
+        }
+
         // aws uploads can be a bit slow—displaying
         // some sort of loading message is a good idea
         setClipLoading(true);
