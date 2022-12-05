@@ -22,8 +22,8 @@ def username_exists(form, field):
 
 def image_url_is_valid(form, field):
     image_url = field.data
-    if not image_url.endswith('"pdf", "png", "jpg", "jpeg", "gif"'):
-        raise ValidationError('Please input a valid image URL')
+    if not image_url.endswith("png"):
+        raise ValidationError('Please input a valid png URL')
 
 
 class SignUpForm(FlaskForm):

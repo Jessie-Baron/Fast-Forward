@@ -48,7 +48,7 @@ const FastForwards = () => {
                         </div>
                         <div className="right">
                             <div className="item-header2">
-                                <NavLink to={`/users/${user?.id}`} className="video-username">{fastForward.User.username}</NavLink>
+                                <NavLink to={`/users/${fastForward?.User?.id}`} className="video-username">{fastForward.User.username}</NavLink>
                                 <div className="video-name">{fastForward.User.first_name} {fastForward.User.last_name}</div>
                             </div>
                             <div className="caption-wrapper">
