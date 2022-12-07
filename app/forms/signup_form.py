@@ -20,17 +20,21 @@ def username_exists(form, field):
     if user:
         raise ValidationError('Username is already in use.')
 
+
 def image_url_is_valid(form, field):
     image_url = field.data
-    if not image_url.endswith("png"):
-        raise ValidationError('Please input a valid png URL')
+    if not (image_url.endswith("jpg") or image_url.endswith("png") or image_url.endswith("jpeg") or image_url.endswith("gif")):
+        raise ValidationError('Please input a valid URL')
 
 
 class SignUpForm(FlaskForm):
     first_name = StringField('firstName', validators=[DataRequired()])
     last_name = StringField('lastName', validators=[DataRequired()])
     bio = StringField('bio', validators=[DataRequired()])
-    image_url = StringField('imageUrl', validators=[DataRequired(), image_url_is_valid])
-    username = StringField('username', validators=[DataRequired(), username_exists])
-    email = EmailField('email', validators=[DataRequired(), Email(), user_exists])
+    image_url = StringField('imageUrl', validators=[
+                            DataRequired(), image_url_is_valid])
+    username = StringField('username', validators=[
+                           DataRequired(), username_exists])
+    email = EmailField('email', validators=[
+                       DataRequired(), Email(), user_exists])
     password = StringField('password', validators=[DataRequired()])
