@@ -444,3 +444,9 @@
     opacity: .2;
     border-color: grey;
 }
+
+@media screen and (max-width: 1600px){
+    .sideBar-items {
+        height: 650px;
+    }
+}
