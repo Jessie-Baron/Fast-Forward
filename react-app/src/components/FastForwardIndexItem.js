@@ -37,7 +37,7 @@ const FastForwardIndexItem = () => {
 
     const deleteFastForward = async () => {
         await dispatch(fastForwardActions.fetchDeleteFastForward(fastForward.id))
-            .then(history.push('/'))
+            .then(history.push(`/users/${user.id}`))
     };
 
     const handleDelete = async (commentId, fastForwardId) => {
