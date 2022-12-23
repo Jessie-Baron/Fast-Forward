@@ -449,4 +449,8 @@
     .sideBar-items {
         height: 650px;
     }
+
+    .dropdown {
+        margin-left: 80%;
+    }
 }

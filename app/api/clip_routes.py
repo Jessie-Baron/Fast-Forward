@@ -8,7 +8,6 @@ clip_routes = Blueprint("clips", __name__)
 
 
 @clip_routes.route('', methods=["POST"])
-@login_required
 def upload_clip():
     if "clip" not in request.files:
         return {"errors": "clip required"}, 400

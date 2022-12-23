@@ -23,6 +23,7 @@ def username_exists(form, field):
 
 def image_url_is_valid(form, field):
     image_url = field.data
+    print(image_url)
     if not (image_url.endswith("jpg") or image_url.endswith("png") or image_url.endswith("jpeg") or image_url.endswith("gif")):
         raise ValidationError('Please input a valid URL')
 

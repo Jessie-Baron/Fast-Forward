@@ -20,7 +20,14 @@ const UploadClip = () => {
 
 
     const handleSubmit = async (e) => {
+
+        const clipTypes = ["video/mp4", "video/webM"]
+
         e.preventDefault();
+        if (!(clipTypes.includes(clip.type))) {
+            return alert("Please submit a valid file type")
+        }
+        console.log(clip)
         const formData = new FormData();
         formData.append("clip", clip);
 
@@ -43,12 +50,27 @@ const UploadClip = () => {
         const res2 = await res.json();
 
         if (res.ok) {
+            console.log(res)
             setClipLoading(false);
         }
+
+        else if (!(res.url.endsWith("webM"))) {
+            setClipLoading(false);
+            setHasSubmitted(false)
+            // error handling
+            return alert(`Please submit a valid mp4 or WebM file`);
+        }
+
+        else if (!(res.url.endsWith("mp4"))) {
+            setClipLoading(false);
+            setHasSubmitted(false)
+            // error handling
+            return alert(`Please submit a valid mp4 or WebM file`);
+        }
+
         else {
             setClipLoading(false);
             setHasSubmitted(false)
-            // a real app would probably use more advanced
             // error handling
             return alert(`Please submit a valid mp4 or WebM file`);
         }

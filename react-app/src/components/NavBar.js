@@ -51,8 +51,6 @@ const NavBar = () => {
 
   const searchItem = document.querySelector(".user-header-navi")
   const searchParam = Number(useLocation().pathname.split("/")[2]);
-  console.log(searchItem?.href.slice(-1))
-
   return (
     <nav>
       <div className="navigation-items">

@@ -5,72 +5,115 @@ import { signUp } from "../../store/session";
 import './SignupForm.css'
 
 const SignUpForm = () => {
-    const [errors, setErrors] = useState([]);
-    const [username, setUsername] = useState('');
-    const [firstName, setFirstName] = useState('');
-    const [lastName, setLastName] = useState('');
-    const [imageUrl, setImageUrl] = useState('');
-    const [bio, setBio] = useState('');
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
-    const [repeatPassword, setRepeatPassword] = useState('');
-    const user = useSelector(state => state.session.user);
-    const dispatch = useDispatch();
+  const [errors, setErrors] = useState([]);
+  const [clip, setClip] = useState(null);
+  const [clipLoading, setClipLoading] = useState(false);
+  const [hasSubmitted, setHasSubmitted] = useState(false);
+  const [username, setUsername] = useState('');
+  const [firstName, setFirstName] = useState('');
+  const [lastName, setLastName] = useState('');
+  const [imageUrl, setImageUrl] = useState('');
+  const [bio, setBio] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [repeatPassword, setRepeatPassword] = useState('');
+  const user = useSelector(state => state.session.user);
+  const dispatch = useDispatch();
 
-    const onSignUp = async (e) => {
-      e.preventDefault();
-      if (password === repeatPassword) {
-        const data = await dispatch(signUp(firstName, lastName, bio, imageUrl, username, email, password));
-        if (data) {
-          setErrors(data)
-        }
+  const onSignUp = async (e) => {
+    e.preventDefault();
+    const formData = new FormData();
+    console.log(clip)
+    formData.append("clip", clip);
+
+    if (password === repeatPassword) {
+
+      setClipLoading(true);
+      setHasSubmitted(true);
+
+      console.log(formData)
+      const res = await fetch('/api/clips', {
+        method: "POST",
+        body: formData,
+      });
+
+      const res2 = await res.json();
+
+      if (res.ok) {
+        setClipLoading(false);
       }
-    };
+      else {
+        setClipLoading(false);
+        setHasSubmitted(false)
+        // error handling
+            }
 
-    const updatedFirstName = (e) => {
-      setFirstName(e.target.value);
-    };
-    const updatedLastName = (e) => {
-      setLastName(e.target.value);
-    };
-    const updatedBio = (e) => {
-      setBio(e.target.value);
-    };
-    const updatedImageUrl = (e) => {
-      setImageUrl(e.target.value);
-    };
+      const user = {
+        firstName,
+        lastName,
+        bio,
+        imageUrl: res2.url,
+        username,
+        email,
+        password
+      }
 
-    const updateUsername = (e) => {
-      setUsername(e.target.value);
-    };
-
-    const updateEmail = (e) => {
-      setEmail(e.target.value);
-    };
-
-    const updatePassword = (e) => {
-      setPassword(e.target.value);
-    };
-
-    const updateRepeatPassword = (e) => {
-      setRepeatPassword(e.target.value);
-    };
-
-    if (user) {
-      return <Redirect to='/' />;
+      const data = await dispatch(signUp(user));
+      if (data) {
+        setErrors(data)
+      }
     }
+  };
 
-    return (
-      <form className='signup-form'onSubmit={onSignUp}>
-        <div>
-          {errors.map((error, ind) => (
-            <div key={ind}>{error}</div>
-          ))}
-        </div>
-        <center>
-          <h2 className="modal-header">Sign Up</h2>
-        </center>
-        <div className="signup-scroll-content">
+  const updatedFirstName = (e) => {
+    setFirstName(e.target.value);
+  };
+  const updatedLastName = (e) => {
+    setLastName(e.target.value);
+  };
+  const updatedBio = (e) => {
+    setBio(e.target.value);
+  };
+  const updateImageUrl = (e) => {
+    setImageUrl(e.target.value);
+  };
+
+  const updateUsername = (e) => {
+    setUsername(e.target.value);
+  };
+
+  const updateEmail = (e) => {
+    setEmail(e.target.value);
+  };
+
+  const updatePassword = (e) => {
+    setPassword(e.target.value);
+  };
+
+  const updateRepeatPassword = (e) => {
+    setRepeatPassword(e.target.value);
+  };
+
+  if (user) {
+    return <Redirect to='/' />;
+  }
+
+  const updateClip = (e) => {
+    const file = e.target.files[0];
+    setClip(file);
+  }
+
+  return (
+    <form className='signup-form' onSubmit={onSignUp}>
+      <div>
+        {errors.map((error, ind) => (
+          <div key={ind}>{error}</div>
+        ))}
+      </div>
+      <center>
+        <h2 className="modal-header">Sign Up</h2>
+      </center>
+      <div className="signup-scroll-content">
         <div className="signup-input">
           <input
             className="loginEmailInput"
@@ -82,7 +125,7 @@ const SignUpForm = () => {
             required
           ></input>
         </div>
-        <div id='lastname-input'className="signup-input">
+        <div id='lastname-input' className="signup-input">
           <input
             className="loginEmailInput"
             type='text'
@@ -103,17 +146,6 @@ const SignUpForm = () => {
             value={bio}
             required
           ></textarea>
-        </div>
-        <div className="signup-input">
-          <input
-            className="loginEmailInput"
-            type='text'
-            name='imageUrl'
-            placeholder="Upload a Profile Picture!"
-            onChange={updatedImageUrl}
-            value={imageUrl}
-            required
-          ></input>
         </div>
         <div className="signup-input">
           <input
@@ -159,10 +191,25 @@ const SignUpForm = () => {
             required={true}
           ></input>
         </div>
+        <center>
+        <h5 className="upload-signup-header">Upload a Profile Picture!</h5>
+        </center>
+        <div className="signup-input">
+          <input
+            type="file"
+            className="file-drop"
+            accept="clip/*"
+            encType="multipart/form-data"
+            onChange={updateClip}
+            required
+          />
         </div>
-        <button className='signup-button' type='submit'>Sign Up</button>
-      </form>
-    );
-  };
+      </div>
+      <div className="submit-buttons-signup">
+        <button className='submit-button-signup' type="submit">Submit</button>
+      </div>
+    </form>
+  );
+};
 
-  export default SignUpForm;
+export default SignUpForm;

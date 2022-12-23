@@ -3,9 +3,9 @@ import botocore
 import os
 import uuid
 
-BUCKET_NAME = os.environ.get("S3_BUCKET")
+BUCKET_NAME = os.environ.get("S3_BUCKET2")
 S3_LOCATION = f"https://{BUCKET_NAME}.s3.amazonaws.com/"
-ALLOWED_EXTENSIONS = {"mp4", "WebM", "pdf", "png", "jpg", "jpeg", "gif"}
+ALLOWED_EXTENSIONS = {"pdf", "png", "jpg", "jpeg", "gif"}
 
 s3 = boto3.client(
    "s3",
