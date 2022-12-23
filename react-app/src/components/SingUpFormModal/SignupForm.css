@@ -111,6 +111,7 @@
         min-height: 46px;
         font-size: 16px;
         line-height: 22px;
+        cursor: pointer;
     }
 
     .submit-buttons-signup {
