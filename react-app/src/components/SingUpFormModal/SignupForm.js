@@ -23,7 +23,6 @@ const SignUpForm = () => {
   const onSignUp = async (e) => {
     e.preventDefault();
     const formData = new FormData();
-    console.log(clip)
     formData.append("clip", clip);
 
     if (password === repeatPassword) {
@@ -62,6 +61,11 @@ const SignUpForm = () => {
       if (data) {
         setErrors(data)
       }
+    }
+    else {
+      setErrors(["Passwords must match"])
+      console.log(errors)
+      return;
     }
   };
 
