@@ -59,7 +59,7 @@ function CommentForm(fastForwardId) {
         />
       </label>}
       {user && <button className={!body || body.length > 300 ? 'comment-button' : 'comment-button-active'} disabled={!body || body.length > 300} type="submit">Respond</button>}
-      {!user && <div className="comment-signin-wrapper"><NavLink to='/' className="signin-text-comments">Please log in to comment</NavLink></div>}
+      {!user && <div className="comment-signin-wrapper"><NavLink to='/' className="signin-text-comments">Please log in to comment!</NavLink></div>}
     </form>
   );
 }
