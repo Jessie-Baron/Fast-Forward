@@ -2,10 +2,8 @@ import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { login } from "../../store/session";
 import { useHistory } from "react-router-dom";
-import { NavLink, Redirect } from "react-router-dom";
 import './LoginForm.css'
 import SignupFormModal from "../SingUpFormModal";
-import LoginFormModal from ".";
 import setShowModal from "./index"
 
 const LoginForm = () => {

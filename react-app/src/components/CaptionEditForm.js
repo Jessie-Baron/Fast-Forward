@@ -1,10 +1,7 @@
 import { useState, useEffect } from "react";
-import { Dispatch } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory, useLocation, useParams } from "react-router-dom";
-import { editComment } from "../store/comment";
 import * as fastForwardActions from "../store/fastForward";
-import { editFastForwardDetails } from "../store/fastForwardDetails";
 
 function CaptionEditForm({setCaptionBody, captionBody, setShowEdit, fastForwardId}) {
   console.log(fastForwardId, "this is the fastForwardId")
@@ -12,8 +9,6 @@ function CaptionEditForm({setCaptionBody, captionBody, setShowEdit, fastForwardI
   const [validationErrors, setValidationErrors] = useState([]);
   const [hasSubmitted, setHasSubmitted] = useState(false);
   const dispatch = useDispatch()
-  const history = useHistory()
-  const { id } = useParams()
 
   useEffect(() => {
     if (!captionBody) {
