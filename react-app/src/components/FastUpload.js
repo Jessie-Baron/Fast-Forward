@@ -24,6 +24,7 @@ const UploadClip = () => {
         const clipTypes = ["video/mp4", "video/webM"]
 
         e.preventDefault();
+        if (!user) return alert("Please log in to upload a FastForward")
         if (!(clipTypes.includes(clip.type))) {
             return alert("Please submit a valid file type")
         }
