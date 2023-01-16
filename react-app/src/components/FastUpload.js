@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { Redirect, useHistory } from "react-router-dom";
 import './FastForwards.css'
 import * as fastForwardActions from "../store/fastForward";
+import { toast } from 'react-hot-toast';
 import NavBar from "./NavBar";
 
 
@@ -24,9 +25,9 @@ const UploadClip = () => {
         const clipTypes = ["video/mp4", "video/webM"]
 
         e.preventDefault();
-        if (!user) return alert("Please log in to upload a FastForward")
+        if (!user) return toast.error(`Please log in to upload a video`)
         if (!(clipTypes.includes(clip.type))) {
-            return alert("Please submit a valid file type")
+            return toast.error(`Please submit a valid mp4 or WebM file`);
         }
         console.log(clip)
         const formData = new FormData();
@@ -59,7 +60,7 @@ const UploadClip = () => {
             setClipLoading(false);
             setHasSubmitted(false)
             // error handling
-            return alert(`Please submit a valid mp4 or WebM file`);
+            return toast.error(`Please submit a valid mp4 or WebM file`);
         }
 
         else if (!(res.url.endsWith("mp4"))) {

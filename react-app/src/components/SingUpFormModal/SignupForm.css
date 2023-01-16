@@ -61,7 +61,8 @@
     background: rgb(46, 46, 46);
     margin-bottom: 15px;
     display: flex;
-    outline: none;}
+    outline: none;
+}
 
     #signup-textarea {
         height: 100px;

@@ -15,6 +15,7 @@ import { ModalProvider } from "./context/Modal";
 import FastForwards from './components/FastForward';
 import FastForwardIndexItem from './components/FastForwardIndexItem'
 import FollowFeed from './components/FollowFeed';
+import toast, { Toaster } from 'react-hot-toast';
 import TopCreators from './components/TopCreators';
 
 function App() {
@@ -74,6 +75,7 @@ function App() {
           </Switch>
         </BrowserRouter>
       </ModalProvider>
+      <Toaster />
     </div>
   );
 }
