@@ -35,7 +35,7 @@ class User(db.Model, UserMixin):
     email = db.Column(db.String(255), nullable=False, unique=True)
     hashed_password = db.Column(db.String(255), nullable=False)
 
-    followers = db.relationship(
+    follows = db.relationship(
         "User",
         secondary=follows,
         primaryjoin=(follows.c.followed_id == id),

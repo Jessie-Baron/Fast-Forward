@@ -15,6 +15,7 @@ def follow():
     user_followed = User.query.get(req_body["followed_id"])
     user_follower = User.query.get(req_body["follower_id"])
     user_follower.following.append(user_followed)
+    print("another weird data thing", user_follower)
     db.session.commit()
     updated_following = user_follower.following.all()
     users = {}
