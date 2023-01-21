@@ -572,6 +572,44 @@
     border: 1px solid white
 }
 
+.follow-button-followed-user {
+    border-width: 1px;
+    border-style: solid;
+    border-radius: 4px;
+    color: rgba(255, 255, 255, 0.9);
+    border-color: rgba(255, 255, 255, 0);
+    background-color: rgb(35, 35, 35);
+    min-width: 198px;
+    min-height: 36px;
+    font-size: 16px;
+    line-height: 22px;
+    font-weight: 100;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 15px;
+}
+
+.follow-button-unfollowed-user {
+    border-width: 1px;
+    border-style: solid;
+    border-radius: 4px;
+    color: rgba(255, 255, 255, 0.9);
+    border-color: rgba(255, 255, 255, 0);
+    background-color: rgb(255, 59, 92);
+    min-width: 198px;
+    min-height: 36px;
+    font-size: 16px;
+    line-height: 22px;
+    font-weight: 100;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 15px;
+}
+
 
 @keyframes myAnimation {
     0% {

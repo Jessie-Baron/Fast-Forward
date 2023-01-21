@@ -17,6 +17,7 @@ const FastForwardIndexItem = () => {
     const user = useSelector((state) => state.session.user);
     const fastForwards = Object.values(useSelector((state) => state.fastForward));
     const fastForward = fastForwards.filter(fastForward => fastForwardId === fastForward.id)[0]
+    console.log(fastForward)
     let followings = useSelector((state) => Object.values(state.follower.following))
     followings = followings.map((user) => user.id)
 
