@@ -4,6 +4,7 @@ from flask_login import UserMixin
 
 follows = db.Table(
     "follows",
+    db.Model.metadata,
     db.Column("follower_id", db.Integer, db.ForeignKey(add_prefix_for_prod("users.id")), primary_key=True),
     db.Column("followed_id", db.Integer, db.ForeignKey(add_prefix_for_prod("users.id")), primary_key=True),
 )
@@ -35,7 +36,7 @@ class User(db.Model, UserMixin):
     email = db.Column(db.String(255), nullable=False, unique=True)
     hashed_password = db.Column(db.String(255), nullable=False)
 
-    follows = db.relationship(
+    followers = db.relationship(
         "User",
         secondary=follows,
         primaryjoin=(follows.c.followed_id == id),
