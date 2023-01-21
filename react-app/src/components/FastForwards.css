@@ -526,6 +526,53 @@
     border-radius: 2px;
 }
 
+.follow-button-followed {
+    border-width: 1px;
+    border-style: solid;
+    border-radius: 4px;
+    color: rgba(255, 255, 255, 0.9);
+    border-color: rgba(255, 255, 255, 0);
+    background-color: rgb(35, 35, 35);
+    min-width: 86px;
+    min-height: 23px;
+    font-size: 16px;
+    line-height: 22px;
+    font-weight: 100;
+    cursor: pointer;
+    margin-left: 75%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.follow-button-unfollowed {
+    border-width: 1px;
+    border-style: solid;
+    border-radius: 4px;
+    color: rgba(255, 59, 92, 1);
+    border-color: rgba(255, 59, 92, 1);
+    background-color: rgba(255, 255, 255, .08);
+    min-width: 86px;
+    min-height: 23px;
+    font-size: 16px;
+    line-height: 22px;
+    font-weight: 100;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 75%;
+    cursor: pointer;
+}
+
+.follow-button-unfollowed:hover {
+    background-color: rgb(36, 16, 16);
+}
+
+.follow-button-followed:hover {
+    border: 1px solid white
+}
+
+
 @keyframes myAnimation {
     0% {
         opacity: 1;

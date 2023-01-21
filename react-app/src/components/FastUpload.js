@@ -34,7 +34,7 @@ const UploadClip = () => {
         formData.append("clip", clip);
 
         if(caption.length >= 2500)  {
-            alert("Character limit exceeded")
+            toast.error("Character limit exceeded")
             setClipLoading(false)
             return;
         }
@@ -67,7 +67,7 @@ const UploadClip = () => {
             setClipLoading(false);
             setHasSubmitted(false)
             // error handling
-            return alert(`Please submit a valid mp4 or WebM file`);
+            return toast.error(`Please submit a valid mp4 or WebM file`);
         }
 
         else {

@@ -7,6 +7,7 @@ import CommentForm from "./CommentForm";
 import CommentEditForm from "./CommentEditForm";
 import * as followActions from '../store/follower'
 import './FastForwards.css'
+import FollowButton from "./FollowButton";
 
 const FastForwards = () => {
     // const user = useSelector((state) => state.session.user);
@@ -19,10 +20,17 @@ const FastForwards = () => {
     const [showMenu, setShowMenu] = useState(false);
     const [editId, setEditId] = useState(-1);
     const [commentBody, setCommentBody] = useState("");
+    const [following, setFollowing] = useState(false)
 
     useEffect(() => {
         dispatch(fastForwardActions.fetchAllFastForwards());
     }, [dispatch]);
+
+    useEffect(() => {
+        dispatch(followActions.followingList(user?.id));
+    }, [dispatch, user?.id]);
+
+
 
     const openMenu = () => {
         if (!showMenu) setShowMenu(true);
@@ -55,6 +63,11 @@ const FastForwards = () => {
                             <NavLink className="caption" to={`/fastForwards/${fastForward.id}`} exact={true}>{fastForward.caption}</NavLink>
                             </div>
                         </div>
+                        { user && <div>
+                            <FollowButton
+                                fastForward={fastForward}
+                                />
+                            </div>}
                     </div>
                     <div className="video-comment">
                         <video className='video' src={fastForward.url} type="video/mp4" controls onMouseOver={event => event.target.play()} onMouseOut={event => event.target.pause()} width="350" height="600" border-radius='8'>

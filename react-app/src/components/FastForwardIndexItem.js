@@ -10,6 +10,7 @@ import CommentForm from "./CommentForm";
 import CommentEditForm from "./CommentEditForm";
 import './FastForwards.css'
 import CaptionEditForm from "./CaptionEditForm";
+import FollowButton from "./FollowButton";
 
 const FastForwardIndexItem = () => {
     const fastForwardId = Number(useLocation().pathname.split("/")[2]);
@@ -25,7 +26,7 @@ const FastForwardIndexItem = () => {
     const [showEdit2, setShowEdit2] = useState(false);
     const [editId, setEditId] = useState(-1);
     const [editId2, setEditId2] = useState(-1);
-    const [following, setFollowing] = useState(followings.includes(fastForward?.User.id))
+    const [following, setFollowing] = useState(followings.includes(fastForward.user_id))
     const [isLoaded, setIsLoaded] = useState(false);
     const { id } = useParams();
     const history = useHistory();
@@ -45,24 +46,24 @@ const FastForwardIndexItem = () => {
         await dispatch(fastForwardActions.fetchAllFastForwards())
     };
 
-    // const handleClick = () => {
-    //     if (!following) {
-    //         dispatch(followActions.follow(user.id, fastForward.user_id))
-    //         // .then(() => followActions.followingList(user.id))
-    //         setFollowing(true)
-    //     } else {
-    //         dispatch(followActions.unfollow(user.id, fastForward.user_id))
-    //             // .then(() => followActions.followingList(user.id))
-    //             .then(() => setFollowing(false))
-    //     }
-    // }
+    const handleFollow = (followerId, followedId) => {
+        if (!following) {
+            dispatch(followActions.follow(followerId, followedId))
+              .then(() => setFollowing(true))
+              console.log("this is whether or not the follow button worked", "followed")
+          } else {
+            dispatch(followActions.unfollow(followerId, followedId))
+              .then(() => setFollowing(false))
+              console.log("this is whether or not the follow button worked", "unfollowed")
+          }
+    }
 
-    // useEffect(() => {
-    //     if (user) {
-    //       dispatch(followActions.followingList(user.id))
-    //       .then(() => setIsLoaded(true))
-    //     }
-    //   }, [dispatch, isLoaded]);
+    useEffect(() => {
+        if (user) {
+          dispatch(followActions.followingList(user.id))
+          .then(() => setIsLoaded(true))
+        }
+      }, [dispatch, isLoaded]);
 
     return (
         <div className="fastForward-wrapper">
@@ -123,11 +124,9 @@ const FastForwardIndexItem = () => {
                                         )}
                                     </div>
                                 </div>
-                                {/* <div className="follow-button-holder">
-                                    {user && (user?.id !== fastForward?.user_id) && (
-                                        <button className={following ? "following-user-button" : "follow-user-button"} onClick={handleClick}>{following ? 'Following' : 'Follow'}</button>
-                                    )}
-                                </div> */}
+                                <div className="follow-button-holder">
+                                    {user &&  <div className={following ? "follow-button-followed" : "follow-button-unfollowed"} onClick={() => handleFollow(user.id, fastForward.User.id)}>{!following ? "Follow" : "Following"}</div>}
+                                </div>
                             </div>
                         </div>
                         <div className="scroll-body">
