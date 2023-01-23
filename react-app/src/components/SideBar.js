@@ -53,7 +53,7 @@ const SideBar = () => {
                 <div>
                     <NavLink className={followingButton ? "sideBar-container-clicked" : "sideBar-container"} to="/following" exact={true}>
                         <i id='following-logo' class="fa-solid fa-people-group"></i>
-                        <div onClick={following} className="following-text">Top Creators</div>
+                        <div onClick={following} className="following-text">Following</div>
                     </NavLink>
                 </div>
             </div>

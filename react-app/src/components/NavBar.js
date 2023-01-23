@@ -51,6 +51,18 @@ const NavBar = () => {
 
   const searchItem = document.querySelector(".user-header-navi")
   const searchParam = Number(useLocation().pathname.split("/")[2]);
+
+
+
+  const searchClick = () => {
+    setQuery("")
+    history.push(`/users/${searchItem?.href.slice(-1)}`)
+  }
+
+  const searchClick2 = (userId) => {
+    history.push(`/users/${userId}`)
+    setQuery("")
+  }
   return (
     <nav>
       <div className="navigation-items">
@@ -73,7 +85,7 @@ const NavBar = () => {
               <div className='user-suggested-nav' key={user.id}>
                 <img className='profile-navi' src={user?.image_url} alt="user logo" />
                 <div className='suggested-text'>
-                  <NavLink className='user-header-navi' to={`/users/${user?.id}`}>{user.username}</NavLink>
+                  <div className='user-header-navi' onClick={() => searchClick2(user.id)}>{user.username}</div>
                   {user?.first_name}
                   &nbsp;{user?.last_name}
                 </div>
@@ -84,7 +96,7 @@ const NavBar = () => {
           </input>
           <hr className="search-divider" />
           <i id={!searchItem || !query || searchItem === 0 ? "search-icon" : "search-icon-active"} class="fa-solid fa-magnifying-glass"></i>
-          <button className='search-button' disabled={!searchItem?.href || !query || searchItem === 0} onClick={() => history.push(`/users/${searchItem?.href.slice(-1)}`)}>
+          <button className='search-button' disabled={!searchItem?.href || !query || searchItem === 0} onClick={() => searchClick()}>
           </button>
         </form>
         <div className='nav-buttons'>

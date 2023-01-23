@@ -20,7 +20,6 @@ const FastForwards = () => {
     const [showMenu, setShowMenu] = useState(false);
     const [editId, setEditId] = useState(-1);
     const [commentBody, setCommentBody] = useState("");
-    const [following, setFollowing] = useState(false)
 
     useEffect(() => {
         dispatch(fastForwardActions.fetchAllFastForwards());
@@ -45,7 +44,7 @@ const FastForwards = () => {
     return (
         <div>
             <div className="fast-forward-feed">{fastForwards?.map((fastForward) => (
-                <div>
+                <div key={fastForward.id}>
                     <div className="item-header3">
                         <div className="left">
                             <img
@@ -63,10 +62,10 @@ const FastForwards = () => {
                             <NavLink className="caption" to={`/fastForwards/${fastForward.id}`} exact={true}>{fastForward.caption}</NavLink>
                             </div>
                         </div>
-                        { user && <div>
+                        {user && <div>
                             <FollowButton
                                 fastForward={fastForward}
-                                />
+                                key={fastForward.id}/>
                             </div>}
                     </div>
                     <div className="video-comment">

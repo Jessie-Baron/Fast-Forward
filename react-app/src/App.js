@@ -14,14 +14,28 @@ import FastUpload from './components/FastUpload';
 import { ModalProvider } from "./context/Modal";
 import FastForwards from './components/FastForward';
 import FastForwardIndexItem from './components/FastForwardIndexItem'
+import * as followActions from './store/follower'
 import FollowFeed from './components/FollowFeed';
 import toast, { Toaster } from 'react-hot-toast';
 import TopCreators from './components/TopCreators';
 
 function App() {
-  const [loaded, setLoaded] = useState(false);
+
+  let followings = useSelector((state) => Object.values(state.follower.following))
+  followings = followings.map((user) => user.id)
   const dispatch = useDispatch();
   const user = useSelector((state) => state.session.user);
+
+  const [loaded, setLoaded] = useState(false);
+  const [isLoaded, setIsLoaded] = useState(false);
+  const [following, setFollowing] = useState(followings.includes(user?.id))
+
+  useEffect(() => {
+    if (user) {
+      dispatch(followActions.followingList(user.id))
+      .then(() => setIsLoaded(true))
+    }
+  }, [dispatch, isLoaded]);
 
 
   useEffect(() => {
@@ -67,7 +81,8 @@ function App() {
             <Route path='/following' exact={true} >
               <NavBar />
               <SideBar2 />
-              <TopCreators />
+              {following && <FollowFeed />}
+              {!following && <TopCreators />}
             </Route>
             <Route path='/fastForwards/:fastForwardId' exact={true} >
               <FastForwardIndexItem />

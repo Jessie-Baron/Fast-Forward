@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { NavLink, useHistory } from "react-router-dom";
 import * as fastForwardActions from "../store/fastForward";
 import { getComments, deleteComment } from "../store/comment";
+import { toast } from 'react-hot-toast';
 import CommentForm from "./CommentForm";
 import CommentEditForm from "./CommentEditForm";
 import * as followActions from '../store/follower'
@@ -23,7 +24,8 @@ const TopCreators = () => {
     const [commentBody, setCommentBody] = useState("");
 
     useEffect(() => {
-        dispatch(fastForwardActions.fetchAllFastForwards());
+        dispatch(fastForwardActions.fetchAllFastForwards())
+        toast("You don't seem to be following anyone. Here are some of our top creators!")
     }, [dispatch]);
 
     const openMenu = () => {
