@@ -92,7 +92,7 @@ const NavBar = () => {
               </div>
             )) : null}
           </div>
-          <input className='search-bar' type='search' onChange={event => setQuery(event.target.value)}>
+          <input className='search-bar' placeholder='Search accounts' type='search' onChange={event => setQuery(event.target.value)}>
           </input>
           <hr className="search-divider" />
           <i id={!searchItem || !query || searchItem === 0 ? "search-icon" : "search-icon-active"} class="fa-solid fa-magnifying-glass"></i>
