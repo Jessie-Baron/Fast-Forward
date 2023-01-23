@@ -62,11 +62,11 @@ const FastForwards = () => {
                             <NavLink className="caption" to={`/fastForwards/${fastForward.id}`} exact={true}>{fastForward.caption}</NavLink>
                             </div>
                         </div>
-                        {user && <div>
+                        {/* {user && <div>
                             <FollowButton
                                 fastForward={fastForward}
                                 key={fastForward.id}/>
-                            </div>}
+                            </div>} */}
                     </div>
                     <div className="video-comment">
                         <video className='video' src={fastForward.url} type="video/mp4" controls onMouseOver={event => event.target.play()} onMouseOut={event => event.target.pause()} width="350" height="600" border-radius='8'>
