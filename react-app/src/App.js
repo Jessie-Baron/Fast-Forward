@@ -28,7 +28,7 @@ function App() {
 
   const [loaded, setLoaded] = useState(false);
   const [isLoaded, setIsLoaded] = useState(false);
-  const [following, setFollowing] = useState(followings.includes(user?.id))
+  console.log("this is the status of the following feed", followings)
 
   useEffect(() => {
     if (user) {
@@ -81,8 +81,8 @@ function App() {
             <Route path='/following' exact={true} >
               <NavBar />
               <SideBar2 />
-              {following && <FollowFeed />}
-              {!following && <TopCreators />}
+              {followings && <FollowFeed />}
+              {!followings.length && <TopCreators />}
             </Route>
             <Route path='/fastForwards/:fastForwardId' exact={true} >
               <FastForwardIndexItem />
