@@ -20,6 +20,10 @@ const FastForwards = () => {
     const [showMenu, setShowMenu] = useState(false);
     const [editId, setEditId] = useState(-1);
     const [commentBody, setCommentBody] = useState("");
+    let followings = useSelector((state) => Object.values(state.follower.following))
+    followings = followings.map((user) => user.id)
+
+
 
     useEffect(() => {
         dispatch(fastForwardActions.fetchAllFastForwards());
@@ -28,6 +32,14 @@ const FastForwards = () => {
     useEffect(() => {
         dispatch(followActions.followingList(user?.id));
     }, [dispatch, user?.id]);
+
+    const handleFollow = (followerId, followedId) => {
+        if (!followings.includes(followedId)) {
+            dispatch(followActions.follow(followerId, followedId))
+          } else {
+            dispatch(followActions.unfollow(followerId, followedId))
+          }
+    }
 
 
 
@@ -62,11 +74,9 @@ const FastForwards = () => {
                             <NavLink className="caption" to={`/fastForwards/${fastForward.id}`} exact={true}>{fastForward.caption}</NavLink>
                             </div>
                         </div>
-                        {/* {user && <div>
-                            <FollowButton
-                                fastForward={fastForward}
-                                key={fastForward.id}/>
-                            </div>} */}
+                        {user && <div>
+                            <div className={followings.includes(fastForward.User.id) ? "follow-button-followed" : "follow-button-unfollowed"} onClick={() => handleFollow(user.id, fastForward.User.id)}>{!followings.includes(fastForward.User.id) ? "Follow" : "Following"}</div>
+                            </div>}
                     </div>
                     <div className="video-comment">
                         <video className='video' src={fastForward.url} type="video/mp4" controls onMouseOver={event => event.target.play()} onMouseOut={event => event.target.pause()} width="350" height="600" border-radius='8'>

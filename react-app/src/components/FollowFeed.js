@@ -27,8 +27,6 @@ function FollowFeed() {
             if (fastForwardId === follows[j].id) filtered.push(fastForwards[i])
     }
 
-    console.log(filtered)
-
     const userComponents = filtered?.map((fastForward) => {
         return (
             <div className='follow-feed'>

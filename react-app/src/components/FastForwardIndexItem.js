@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { useLocation, useParams, NavLink, useHistory } from "react-router-dom";
+import { useLocation, useParams, NavLink, useHistory, Link } from "react-router-dom";
 import * as fastForwardDetailsActions from "../store/fastForwardDetails";
 import * as fastForwardActions from "../store/fastForward";
 import * as followActions from '../store/follower'
@@ -17,7 +17,6 @@ const FastForwardIndexItem = () => {
     const user = useSelector((state) => state.session.user);
     const fastForwards = Object.values(useSelector((state) => state.fastForward));
     const fastForward = fastForwards.filter(fastForward => fastForwardId === fastForward.id)[0]
-    console.log(fastForward)
     let followings = useSelector((state) => Object.values(state.follower.following))
     followings = followings.map((user) => user.id)
 
@@ -51,11 +50,9 @@ const FastForwardIndexItem = () => {
         if (!following) {
             dispatch(followActions.follow(followerId, followedId))
               .then(() => setFollowing(true))
-              console.log("this is whether or not the follow button worked", "followed")
           } else {
             dispatch(followActions.unfollow(followerId, followedId))
               .then(() => setFollowing(false))
-              console.log("this is whether or not the follow button worked", "unfollowed")
           }
     }
 
@@ -86,7 +83,7 @@ const FastForwardIndexItem = () => {
                                 </div>
                                 <div className="right">
                                     <div className="item-header2">
-                                        <div className="video-username">{fastForward?.User?.username}</div>
+                                        <Link to={`/users/${fastForward?.User?.id}`} className="video-username">{fastForward?.User?.username}</Link>
                                         <div className="video-name">{fastForward?.User?.first_name} {fastForward?.User.last_name}</div>
                                     </div>
                                     <div className="caption-wrapper">

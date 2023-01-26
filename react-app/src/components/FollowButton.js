@@ -16,7 +16,6 @@ const FollowButton = ({fastForward}) => {
     const [following, setFollowing] = useState(followings.includes(fastForward.user_id))
     const dispatch = useDispatch();
     const user = useSelector((state) => state.session.user);
-    console.log("this is the value of following", following)
 
 
     useEffect(() => {
