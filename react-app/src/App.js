@@ -28,7 +28,6 @@ function App() {
 
   const [loaded, setLoaded] = useState(false);
   const [isLoaded, setIsLoaded] = useState(false);
-  console.log("this is the status of the following feed", followings)
 
   useEffect(() => {
     if (user) {
