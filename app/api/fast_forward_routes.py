@@ -118,3 +118,12 @@ def post_like(id):
     db.session.add(like)
     db.session.commit()
     return like.to_dict()
+
+@fast_forward_routes.route('/likes')
+@login_required
+def get_likes():
+    """
+    Query for all comments for a fast_forward and returns them in a list of dictionaries
+    """
+    likes = LikePost.query.all()
+    return likes.to_dict()

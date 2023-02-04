@@ -11,6 +11,7 @@ from .api.auth_routes import auth_routes
 from .api.fast_forward_routes import fast_forward_routes
 from .api.comment_routes import comments_routes
 from .api.clip_routes import clip_routes
+from .api.like_routes import likes_routes
 from .seeds import seed_commands
 from .config import Config
 
@@ -37,6 +38,7 @@ app.register_blueprint(user_routes, url_prefix='/api/users')
 app.register_blueprint(auth_routes, url_prefix='/api/auth')
 app.register_blueprint(fast_forward_routes, url_prefix='/api/fastForwards')
 app.register_blueprint(followers_routes, url_prefix="/api/followers")
+app.register_blueprint(likes_routes, url_prefix="/api/likes")
 app.register_blueprint(comments_routes, url_prefix="/api/comments")
 app.register_blueprint(clip_routes, url_prefix="/api/clips")
 

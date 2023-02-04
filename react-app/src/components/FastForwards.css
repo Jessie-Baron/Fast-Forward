@@ -610,6 +610,33 @@
     margin-top: 15px;
 }
 
+.like-wrapper {
+    display: flex;
+    -webkit-box-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    align-items: center;
+    width: 22px;
+    height: 22px;
+    font-size: 0px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.12);
+    padding: 6px;
+    margin-left: 5%;
+    margin-top: 10%;
+}
+
+#liked {
+    font-size: 18px;
+    color: rgb(255, 59, 92);
+    cursor: pointer;
+}
+
+#un-liked {
+    font-size: 18px;
+    color: rgba(255, 255, 255, 0.9);
+    cursor: pointer;
+}
 
 @keyframes myAnimation {
     0% {

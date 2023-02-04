@@ -18,8 +18,6 @@ const FastForwardIndexItem = () => {
     const user = useSelector((state) => state.session.user);
     const fastForwards = Object.values(useSelector((state) => state.fastForward));
     const fastForward = fastForwards.filter(fastForward => fastForwardId === fastForward.id)[0]
-    // const postLikes = Object.values(useSelector((state) => state.allLikes))
-    // const filterLikes = postLikes.filter(like => like.userId === user.id)
     let followings = useSelector((state) => Object.values(state.follower.following))
     followings = followings.map((user) => user.id)
 
@@ -30,7 +28,6 @@ const FastForwardIndexItem = () => {
     const [editId, setEditId] = useState(-1);
     const [editId2, setEditId2] = useState(-1);
     const [following, setFollowing] = useState(followings.includes(fastForward?.user_id))
-    const [postLiked, setPostLiked] = useState(followings.includes(fastForward?.user_id))
     const [isLoaded, setIsLoaded] = useState(false);
     const { id } = useParams();
     const history = useHistory();
@@ -60,12 +57,16 @@ const FastForwardIndexItem = () => {
           }
     }
 
-    const handleLike = (postId) => {
-        if(!postLiked) {
-            dispatch(likeActions.createLike(postId))
+    const handleLike = async (fastForward) => {
+        console.log(fastForward.id)
+        const likes = fastForward?.LikePosts?.filter(like => like.user_id === user.id)
+        if(!likes.length > 0) {
+            await dispatch(likeActions.createLike(fastForward.id))
+            await dispatch(fastForwardActions.fetchAllFastForwards())
         }
         else {
-            dispatch(likeActions.deleteLike(postId))
+            await dispatch(likeActions.deleteLike(likes[0].id, fastForward.id))
+            await dispatch(fastForwardActions.fetchAllFastForwards())
         }
     }
 
@@ -140,7 +141,7 @@ const FastForwardIndexItem = () => {
                                 </div>
                             </div>
                             <div>
-                                <div onClick={() => handleLike(fastForward?.id)}><i class="fa-regular fa-heart"></i></div>
+                                <div className="like-wrapper" onClick={() => handleLike(fastForward)}><i id={fastForward?.LikePosts?.filter(like => like.user_id === user.id).length > 0 ? "liked" : "un-liked"} class="fa-solid fa-heart"></i></div>
                             </div>
                         </div>
                         <div className="scroll-body">

@@ -22,7 +22,8 @@ def remove_like(id):
     """
     Query for all likes for a story and returns them in a list of dictionaries
     """
-    like = LikePost.query.filter_by( fast_forward_id=id, user_id=current_user.id).first()
+    like = LikePost.query.get(id)
+    print(like)
     if current_user.id == like.user_id:
         db.session.delete(like)
         db.session.commit()

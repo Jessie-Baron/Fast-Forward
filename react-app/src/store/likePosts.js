@@ -28,12 +28,13 @@ export const remove = (likeId) => ({
 
 
 
-export const getLikes = (fastForwardId) => async dispatch => {
+export const getLikes = () => async dispatch => {
 
-  const response = await fetch(`/api/fastForwards/${fastForwardId}/likes`);
+  const response = await fetch(`/api/fastForwards/likes`);
 
   if (response.ok) {
     const list = await response.json();
+    console.log("this is the like list", list)
     dispatch(load(list));
   }
 };
@@ -109,14 +110,14 @@ export const editLike = (likeId, payload, fastForwardId) => async dispatch => {
 };
 
 
-export const deleteLike = (fastForwardId) => async dispatch => {
-  const response = await fetch(`/api/likes/${fastForwardId}`, {
+export const deleteLike = (id, fastForwardId) => async dispatch => {
+  console.log("this is the id to be removed", id)
+  const response = await fetch(`/api/likes/${id}`, {
     method: 'DELETE'
   });
 
   if (response.ok) {
-    const list = await response.json();
-    dispatch(remove(fastForwardId));
+    dispatch(remove(id));
     dispatch(fetchFastForwardDetails(fastForwardId))
   }
 }

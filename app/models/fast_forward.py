@@ -28,5 +28,6 @@ class FastForward(db.Model):
             'caption': self.caption,
             'user_id': self.user_id,
             'User': self.user.to_dict(),
-            'Comments': [comment.to_dict() for comment in self.comments]
+            'Comments': [comment.to_dict() for comment in self.comments],
+            'LikePosts':[like_post.to_dict() for like_post in self.like_post]
         }
