@@ -50,17 +50,17 @@ const FastForwardIndexItem = () => {
     const handleFollow = (followerId, followedId) => {
         if (!following) {
             dispatch(followActions.follow(followerId, followedId))
-              .then(() => setFollowing(true))
-          } else {
+                .then(() => setFollowing(true))
+        } else {
             dispatch(followActions.unfollow(followerId, followedId))
-              .then(() => setFollowing(false))
-          }
+                .then(() => setFollowing(false))
+        }
     }
 
     const handleLike = async (fastForward) => {
         console.log(fastForward.id)
         const likes = fastForward?.LikePosts?.filter(like => like.user_id === user.id)
-        if(!likes.length > 0) {
+        if (!likes.length > 0) {
             await dispatch(likeActions.createLike(fastForward.id))
             await dispatch(fastForwardActions.fetchAllFastForwards())
         }
@@ -72,10 +72,10 @@ const FastForwardIndexItem = () => {
 
     useEffect(() => {
         if (user) {
-          dispatch(followActions.followingList(user.id))
-          .then(() => setIsLoaded(true))
+            dispatch(followActions.followingList(user.id))
+                .then(() => setIsLoaded(true))
         }
-      }, [dispatch, isLoaded]);
+    }, [dispatch, isLoaded]);
 
     return (
         <div className="fastForward-wrapper">
@@ -137,11 +137,24 @@ const FastForwardIndexItem = () => {
                                     </div>
                                 </div>
                                 <div className="follow-button-holder">
-                                    {user &&  <div className={following ? "follow-button-followed" : "follow-button-unfollowed"} onClick={() => handleFollow(user.id, fastForward.User.id)}>{!following ? "Follow" : "Following"}</div>}
+                                    {user && <div className={following ? "follow-button-followed" : "follow-button-unfollowed"} onClick={() => handleFollow(user.id, fastForward.User.id)}>{!following ? "Follow" : "Following"}</div>}
                                 </div>
                             </div>
-                            <div>
-                                <div className="like-wrapper" onClick={() => handleLike(fastForward)}><i id={fastForward?.LikePosts?.filter(like => like.user_id === user.id).length > 0 ? "liked" : "un-liked"} class="fa-solid fa-heart"></i></div>
+                            <div className="summary-line">
+                                <div className="like-summary">
+                                    <div className="like-wrapper" onClick={() => handleLike(fastForward)}>
+                                        <i id={fastForward?.LikePosts?.filter(like => like.user_id === user.id).length > 0 ? "liked" : "un-liked"} class="fa-solid fa-heart"></i>
+                                    </div>
+                                    <div className="like-number">{fastForward?.LikePosts?.length}</div>
+                                </div>
+                                <div className="like-summary">
+                                    <div className="comment-wrapper-2">
+                                        <i id="comment" class="fa-regular fa-comment-dots"></i>
+                                    </div>
+                                    <div className="like-number">
+                                        {fastForward?.Comments?.length}
+                                    </div>
+                                </div>
                             </div>
                         </div>
                         <div className="scroll-body">
