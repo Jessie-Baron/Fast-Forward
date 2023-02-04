@@ -13,6 +13,7 @@ class FastForward(db.Model):
     user_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod("users.id")))
     user = db.relationship("User", lazy='joined', backref="fastForwards")
     comment = db.relationship("Comment", cascade="all,delete", backref="fastForwards")
+    like_post = db.relationship("LikePost", cascade="all,delete", backref="fastForwards")
 
     # liked_fast_forward_user = db.relationship(
     #     "User",

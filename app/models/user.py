@@ -39,15 +39,6 @@ class User(db.Model, UserMixin):
         lazy="dynamic",
     )
 
-    # liked = db.relationship(
-    #     "FastForward",
-    #     secondary=like_fast_forward,
-    #     primaryjoin=(like_comment.c.user_id == id),
-    #     secondaryjoin=(like_comment.c.comment_id == id),
-    #     lazy='dynamic',
-    #     back_populates = "liked_fast_forward_user"
-    # )
-
     # liked_comment = db.relationship(
     #     "Comment",
     #     secondary=like_comment,

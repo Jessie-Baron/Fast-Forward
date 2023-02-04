@@ -1,6 +1,6 @@
 from flask import Blueprint, request, jsonify
 from sqlalchemy.orm import relationship, sessionmaker, joinedload
-from app.models import FastForward, db, Comment, User
+from app.models import FastForward, db, Comment, User, LikePost
 from flask_login import login_required, current_user
 from app.forms import FastForwardForm
 from app.forms import CommentForm
@@ -106,3 +106,15 @@ def post_comment(id):
         db.session.commit()
         return comment.to_dict()
     return {'errors': validation_errors_to_error_messages(form.errors)}, 401
+
+@fast_forward_routes.route('/<int:id>/likes', methods=['POST'])
+@login_required
+def post_like(id):
+    """
+    Posts a like to a fast_forward
+    """
+    like = LikePost(user_id=current_user.id,
+                    fast_forward_id=id)
+    db.session.add(like)
+    db.session.commit()
+    return like.to_dict()

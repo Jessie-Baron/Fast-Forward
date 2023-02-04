@@ -5,6 +5,7 @@ import fastForward from './fastForward'
 import fastForwardDetails from './fastForwardDetails'
 import commentReducer from './comment'
 import follower from './follower'
+import postLikeReducer from './likePosts';
 
 const rootReducer = combineReducers({
   session,
@@ -12,6 +13,7 @@ const rootReducer = combineReducers({
   fastForwardDetails,
   comment: commentReducer,
   follower,
+  postLikes: postLikeReducer,
 });
 
 let enhancer;

@@ -4,6 +4,7 @@ import { useLocation, useParams, NavLink, useHistory, Link } from "react-router-
 import * as fastForwardDetailsActions from "../store/fastForwardDetails";
 import * as fastForwardActions from "../store/fastForward";
 import * as followActions from '../store/follower'
+import * as likeActions from '../store/likePosts'
 // import * as followActions from '../../store/follower'
 import { getComments, deleteComment } from "../store/comment";
 import CommentForm from "./CommentForm";
@@ -17,6 +18,8 @@ const FastForwardIndexItem = () => {
     const user = useSelector((state) => state.session.user);
     const fastForwards = Object.values(useSelector((state) => state.fastForward));
     const fastForward = fastForwards.filter(fastForward => fastForwardId === fastForward.id)[0]
+    // const postLikes = Object.values(useSelector((state) => state.allLikes))
+    // const filterLikes = postLikes.filter(like => like.userId === user.id)
     let followings = useSelector((state) => Object.values(state.follower.following))
     followings = followings.map((user) => user.id)
 
@@ -26,7 +29,8 @@ const FastForwardIndexItem = () => {
     const [showEdit2, setShowEdit2] = useState(false);
     const [editId, setEditId] = useState(-1);
     const [editId2, setEditId2] = useState(-1);
-    const [following, setFollowing] = useState(followings.includes(fastForward.user_id))
+    const [following, setFollowing] = useState(followings.includes(fastForward?.user_id))
+    const [postLiked, setPostLiked] = useState(followings.includes(fastForward?.user_id))
     const [isLoaded, setIsLoaded] = useState(false);
     const { id } = useParams();
     const history = useHistory();
@@ -54,6 +58,15 @@ const FastForwardIndexItem = () => {
             dispatch(followActions.unfollow(followerId, followedId))
               .then(() => setFollowing(false))
           }
+    }
+
+    const handleLike = (postId) => {
+        if(!postLiked) {
+            dispatch(likeActions.createLike(postId))
+        }
+        else {
+            dispatch(likeActions.deleteLike(postId))
+        }
     }
 
     useEffect(() => {
@@ -126,6 +139,9 @@ const FastForwardIndexItem = () => {
                                     {user &&  <div className={following ? "follow-button-followed" : "follow-button-unfollowed"} onClick={() => handleFollow(user.id, fastForward.User.id)}>{!following ? "Follow" : "Following"}</div>}
                                 </div>
                             </div>
+                            <div>
+                                <div onClick={() => handleLike(fastForward?.id)}><i class="fa-regular fa-heart"></i></div>
+                            </div>
                         </div>
                         <div className="scroll-body">
                             {fastForward?.Comments?.map((comment) => (
@@ -138,7 +154,6 @@ const FastForwardIndexItem = () => {
                                         ></img>
                                         <div>{comment.User.username}</div>
                                     </div>
-
                                     <div className="comment-body">{comment.body}</div>
                                     {comment?.user_id === user?.id && (
                                         <div className="comment-buttons">
