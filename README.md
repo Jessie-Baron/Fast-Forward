@@ -6,10 +6,10 @@ Live Link: https://fast-forward-en.onrender.com
 
 ## Wiki Links
 
-- [Features](https://github.com/aselk1/Fast-Forward/wiki/Features-List)
-- [Database Schema](https://github.com/aselk1/Fast-Forward/wiki/DB-Schema)
-- [User Stories](https://github.com/aselk1/Fast-Forward/wiki/User-Stories)
-- [Redux Shape](https://github.com/aselk1/Fast-Forward/wiki/Redux-State-Shape)
+- [Features](https://github.com/Jessie-Baron/Fast-Forward/wiki/Features-List)
+- [Wire Frames](https://github.com/Jessie-Baron/Fast-Forward/wiki/Wireframes)
+- [User Stories](https://github.com/Jessie-Baron/Fast-Forward/wiki/User-Stories)
+- [Schema](https://github.com/Jessie-Baron/Fast-Forward/wiki/DB-Schema)
 
 ## Technologies Used
 
