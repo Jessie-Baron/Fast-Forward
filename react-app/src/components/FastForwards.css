@@ -588,6 +588,53 @@
     color: white;
 }
 
+.share-link {
+    border-radius: 5px;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    margin-left: 5%;
+    margin-top: 2%;
+    width: 81%;
+    height: 30px;
+    display: flex;
+}
+
+.share-item-2 {
+    width: 100%;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    flex: 1 1 auto;
+    padding: 7px 0px 5px 12px;
+    background-color: rgba(255, 255, 255, 0.12);
+    color: rgba(255, 255, 255, 0.75);
+    font-size: 14px;
+    line-height: 20px;
+}
+
+.share-line {
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.share-item {
+    color: white;
+    height: 24px;
+    padding: 5px;
+    padding-left: 15px;
+    width: 16%;
+    font-size: 14px;
+    border: none;
+    outline: none;
+    background-color: rgba(157, 157, 157, 0.12);
+}
+
+.share-item:hover {
+    background-color: rgb(27, 27, 27);
+    cursor: pointer;
+}
+
 .signin-text-comments {
     color: rgb(255, 59, 92);
     font-weight: 600;

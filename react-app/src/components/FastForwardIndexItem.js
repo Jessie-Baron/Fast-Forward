@@ -12,6 +12,7 @@ import CommentEditForm from "./CommentEditForm";
 import './FastForwards.css'
 import CaptionEditForm from "./CaptionEditForm";
 import FollowButton from "./FollowButton";
+import { toast } from 'react-hot-toast';
 
 const FastForwardIndexItem = () => {
     const fastForwardId = Number(useLocation().pathname.split("/")[2]);
@@ -57,8 +58,13 @@ const FastForwardIndexItem = () => {
         }
     }
 
+    const handleCopy = (fastForward) => {
+        navigator.clipboard.writeText(fastForward.url)
+        toast("URL copied to clipnoard")
+    }
+
     const handleLike = async (fastForward) => {
-        console.log(fastForward.id)
+        if(!user) return toast.error("Please log-in to like posts")
         const likes = fastForward?.LikePosts?.filter(like => like.user_id === user.id)
         if (!likes.length > 0) {
             await dispatch(likeActions.createLike(fastForward.id))
@@ -153,6 +159,19 @@ const FastForwardIndexItem = () => {
                                     </div>
                                     <div className="like-number">
                                         {fastForward?.Comments?.length}
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="share-line">
+                                <div className="share-link">
+                                    <input
+                                        className="share-item-2"
+                                        placeholder={fastForward?.url}
+                                        disabled={true}
+                                    >
+                                    </input>
+                                    <div onClick={() => handleCopy(fastForward)} className="share-item">
+                                        Copy link
                                     </div>
                                 </div>
                             </div>
