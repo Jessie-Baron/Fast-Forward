@@ -2,7 +2,7 @@
 
 Fast-Forward is a social media platform, inspired by TikTok, where a user can upload videos to their personal profiles or interact with content from other creators! Create your own account or log in with the "Demo User" option.
 
-Live Link: https://fastforward-en.onrender.com/
+Live Link: https://fastforward-en-bfes.onrender.com
 
 ## Wiki Links
 
