@@ -834,3 +834,12 @@
         opacity: 1;
     }
 }
+
+@media screen and (max-width: 376px) {
+    .fast-forward-feed {
+        margin-left: 38%;
+        display: flex;
+        flex-direction: column;
+        gap: 25px;
+    }
+}

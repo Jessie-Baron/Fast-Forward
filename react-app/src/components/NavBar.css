@@ -445,7 +445,37 @@
     border-color: grey;
 }
 
-@media screen and (max-width: 1600px){
+@media screen and (max-width: 375px){
+    .sideBar-items {
+        display: flex;
+        flex-direction: column;
+        width: 250px;
+        margin-left: 8%;
+        margin-top: 5%;
+        top: 0;
+        position: fixed;
+        overflow-y: scroll;
+        scrollbar-color: grey;
+        scrollbar-width: thin;
+        height: 800px;
+    }
+
+    .navigation-items {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        padding-bottom: 7px;
+        box-shadow: rgb(255 255 255 / 12%) 0px 1px 1px;
+        position: fixed;
+        width: 70%;
+        z-index: 500;
+        background-color: rgb(18, 18, 18);
+        top: 0;
+    }
+  }
+
+
+  @media screen and (max-width: 1600px){
     .sideBar-items {
         height: 650px;
     }
