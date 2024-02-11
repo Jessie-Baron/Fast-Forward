@@ -78,7 +78,7 @@ const SideBar = () => {
                 <p className='bio'>Hey There! 👋 My name's Jessie! I'm a Full Stack Developer and the creator of this website! View, upload, edit or remove videos yourself, or interact with videos uploaded by other content creators! Want to know more about me? look below!
                 </p>
                 <br></br>
-                👇👇👇👇👇👇👇👇👇👇👇👇👇👇👇👇👇
+                👇👇👇👇👇👇👇👇👇👇👇👇👇👇👇👇
                 <h3 className='social-header' >Interested in hiring me?</h3>
                 <h4 className='social-subHeader' >Let's Connect!</h4>
                 <br></br>
